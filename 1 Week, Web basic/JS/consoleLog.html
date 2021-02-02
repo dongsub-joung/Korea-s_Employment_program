@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    // case 1
+    const apple= 200, orange= 110;
+    let case_1= function(a,b) { return a+b; }
+
+    // case 2
+    const paper=20, people=3;
+    let case_2= function(a,b) { return a%b; }
+
+    // case 3
+    const score= new Array(20,34,10);
+    let avgScore= function(...scores) 
+    { 
+        let element= 0;
+        const len= scores.length;
+        for (let value of scores)  element+= value;
+        return (element / len);
+    }
+
+    // case 4
+    const Salary= 100;
+    let SalaryOfAyear= function(salarys)
+    {
+        const years= 12;
+        const tax= 0.1;
+        return (salarys*years) * tax;
+    }
+
+    // case 5: case 3재사용
+    const score_two= new Array(30,50,4);
+
+    // case 6
+    const row=3, col=6;
+    let triangleArea= function(row, col)
+    {
+        const formula_number= 0.5;
+        return (row*col)*formula_number;
+    }
+
+    // case 7
+    const time= 100;
+    let invertMinute= function(times)
+    {
+        let minute= parseInt(times/60);
+        let sec= times%60;
+        return `${minute} : ${sec}`;
+    }
+
+    // case 8
+    const budget= 800;
+    let changed= function(budgets)
+    {
+        let fiv_won= parseInt(budgets/500);
+        let one_won= parseInt((budgets%500)/100)
+        return `500원(${fiv_won}개), 100원(${one_won}개)`
+    }
+
+
+    // output
+    console.log("case 1")
+    console.log(case_1(apple,orange));
+    console.log("case 2")
+    console.log(case_2(paper,people));
+    console.log("case 3")
+    console.log(avgScore(...score));
+    console.log("case 4")
+    console.log(SalaryOfAyear(Salary));
+    console.log("case 5")
+    console.log(avgScore(...score_two));
+    console.log("case 6")
+    console.log(triangleArea(row, col));
+    console.log("case 7")
+    console.log(invertMinute(time));
+    console.log("case 8")
+    console.log(changed(budget));
+</script>
+
+</body>
+</html>
