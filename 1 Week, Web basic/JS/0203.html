@@ -1,0 +1,156 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // test 1
+        const money= 174900;
+        const change= function(moneys)
+        {
+            const fifty_t_won= parseInt(moneys/50000);
+            const ten_t_won= parseInt((moneys%50000)/10000);
+            const fiv_s_won= parseInt((moneys%10000)/5000);
+            const one_s_won= parseInt((moneys%5000)/1000);
+            const fiv_h_won= parseInt((moneys%1000)/500);
+            const one_h_won= parseInt((moneys%500)/100);
+            
+            return `오만원: ${fifty_t_won}, 일만원: ${ten_t_won}, 오천원: ${fiv_s_won}, 일천원: ${one_s_won}, 오백원: ${fiv_h_won}, 일백원: ${one_h_won}`;
+        }
+
+        // test 2
+        const budge_cinema= 50000;
+        const calSpandedMoney= function(budges)
+        {   
+            // moive, popcon, cok
+            const amount= new Array(1,1,2);    
+            const moive_price= 12000;
+            const popcon_price= moive_price * 0.6;
+            const cok_price= popcon_price-4000;
+            
+            let list= new Array(moive_price, popcon_price, cok_price);
+            let sum=0;
+            for (let index = 0; index < list.length; index++) 
+            {
+                sum += list[index]*amount[index];
+            }
+
+            return budges-sum;
+        }
+
+        // test 3
+        const budge_food= 20000;
+        const people= 3;
+        const calSpandedForFood= function(budges, people)
+        {
+            let food_price= (-2000+budges) /people ;
+            return food_price;
+        }
+
+        // case 4 
+        const time= 123123;
+        const invertingMinute= function(times)
+        {
+            let hours= parseInt(times/3600)
+            let minute= parseInt(times%3600/60);
+            let sec= times%60;
+            return `${hours} : ${minute} : ${sec}`;
+        }
+
+        // case 5
+        const inner_class_num= 31;
+        const checkingVolunteer= () => 
+        {
+            const man= 12;
+            const woman= 14;
+            return inner_class_num - man - woman;
+        }
+
+        // case 6
+        const ta= 7;
+        const calHowMuchGetPen= (tas) => 
+        {
+            const student= 2+4;
+            const all= tas*12;
+            return parseInt(all/student);
+        }
+
+        // case 7 
+        const calHours= () =>
+        {
+            return parseInt(96/4);
+        }
+
+        // case 8
+        const calgram= () =>
+        {
+            const orange= 840/6;
+            const apple= 750/3;
+            return orange*5+apple*4;
+        }
+
+        // case 9 
+        const case_9= () =>
+        {
+            const x = 6.12/3;
+            return x/4;
+        }
+
+        // case 10
+        const case_10= () =>
+        {
+            const perOneMin= 9/80;
+            return perOneMin*3;
+        }
+
+        // case 11 
+        const case_11= () =>
+        {
+            const am= 250 * 0.84;
+            const pm= 250-am;
+            return am-pm;
+        }
+
+        // case 12
+        const case_12= () => 
+        {
+            const p= 400000;
+            const under_19= p*0.35;
+            const upper_40= p*0.25;
+            return under_19-upper_40;
+        }
+
+
+        console.log("------------------------")
+        console.log("test 1");
+        console.log(change(money));
+        console.log("test 2");
+        console.log(calSpandedMoney(budge_cinema));
+        console.log("test 3");
+        console.log(calSpandedForFood(budge_food, people));
+        console.log("test 4");
+        console.log(invertingMinute(time));
+        console.log("------------------------")
+        console.log("test 5");
+        console.log(checkingVolunteer(inner_class_num));
+        console.log("test 6");   
+        console.log(calHowMuchGetPen(ta));   
+        console.log("test 7");   
+        console.log(calHours());   
+        console.log("test 8");   
+        console.log(calgram());    
+        console.log("test 9");   
+        console.log(case_9());   
+        console.log("test 10");   
+        console.log(case_10());  
+        console.log("test 11");   
+        console.log(case_11());   
+        console.log("test 12");   
+        console.log(case_12());  
+
+
+    </script>
+</body>
+</html>
