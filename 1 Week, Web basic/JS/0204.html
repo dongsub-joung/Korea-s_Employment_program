@@ -1,0 +1,159 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.1
+        const test01= () =>
+        {
+            const num= 17;
+            if(num%3 == 0) return true;
+            else return false;
+        }
+
+        // 1.2
+        const test02= () => 
+        {
+            const num= 28
+            if(num%2 == 0) return true;
+        }
+
+        // 2.1
+        const test03= () => 
+        {
+            const m= 20000;
+            let oi= 9*1200;
+            if(m-oi > 1000) return true;
+        }
+
+        // 2.2
+        const test04= () =>
+        {
+            const r= 3;
+            const l= 6;
+            const result= r*l*0.5;
+            if (result%2 == 1) return true;
+        }
+
+        // 2.3
+        const test05= () =>
+        {
+            const orange= 840/6;
+            const apple= 750/3;
+            if(orange*4>apple*2) return true;
+        }
+
+        // 2.4
+        const test06= () =>
+        {
+            const s= 123123;
+            if (s % 60 == 1) return true;
+            else return false;
+        }
+
+        // 2.5
+        const test07= () =>
+        {
+            const all = 31;
+            const man = 8;
+            const woman = 14;
+            const remained= all-man-woman;
+            if(remained > man) return true;
+        }
+        
+        // 3.1
+        const test08= () =>
+        {
+            const t= 99;
+            if(t>=60 && t<=100) return true;
+            else return false;
+        }
+
+        // 3.2
+        const test09= () =>
+        {
+            const num1= 12;
+            if(num1%3 == 0 && num1%2 ==0) return true;
+            else return false;
+        }
+
+        const test10= () =>
+        {
+            const num2= 12;
+            if(num2%5 == 0 && num2%2 ==1) return true;
+            else return false;
+        }
+
+        // 4.1 과락
+        const test11= () =>
+        {
+            const kor=100;
+            const eng= 87;
+            const math= 41;
+            const size=3;
+
+            const avg= (kor+eng+math)/size;
+            if(avg>=60)
+            {
+                if(kor>=50 && eng >=50 && math>=50) return true;
+                else return false;
+            } 
+            else return false;
+        }
+
+        // 4.2 장학생
+        const test12= () =>
+        {
+            const a= 99;
+            const b= 99;
+            if(a==100 || b==100 ) return true;
+            else return false;
+        }
+
+        // 4.3 삼각형 넓이
+        const test13= () =>
+        {
+            const r= 4;
+            const l= 6;
+            const cal= 4*6*0.5;
+            if(cal%2 ==0 && cal%4 ==0) return true;
+            else return false;
+        }
+
+        // 4.4 연봉
+        const test14= () =>
+        {
+            const a= 970;
+            const b= a*0.11+a;
+            const c= 91*12;
+            if(b>c) return true;
+            else return false;
+        }
+        
+        console.log("1.");
+        console.log(test01());
+        console.log(test02());
+
+        console.log("2.");
+        console.log(test03());
+        console.log(test04());
+        console.log(test05());
+        console.log(test06());
+        console.log(test07());
+        
+        console.log("3.");
+        console.log(test08());
+        console.log(test09());
+        console.log(test10());
+
+        console.log("4.");
+        console.log(test11());
+        console.log(test12());
+        console.log(test13());
+        console.log(test14());
+    </script>
+</body>
+</html>
