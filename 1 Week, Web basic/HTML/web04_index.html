@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+webdev_day02-ex3
+
+
+<!-- action tag 검  -->
+	<form method= "post">
+		아이디: <input type="text" > <p> 
+		비밀번호: <input type="password"> <p>
+		로그인:<input type="button" value="login">
+	</form>
+	
+	
+	<br>
+	게시판 글쓰기 <p>  
+	
+	제목: <input type="text" name="subject" size="50" placeholder="제목을 입력하시오.">
+	<p>
+	<textarea name= "content" cols="45" rows="10" placeholder="본문을 입력하세요. "></textarea>
+	
+ 	<br>
+ 	<input type="button" value="submint">
+	
+	
+	<br> <p>
+	라디오 버튼, 체크박스 <p>
+	<form action="" method="get">
+		<!--name 값이 같아야함 -->
+		<input type="radio" name="member"> 회원 &nbsp;&nbsp; 
+		<!-- checked tag 검색  -->
+		<input type="radio" name="member"> 비회원 
+	</form>
+	
+	<p>
+	주문메뉴를 선택하시오: <br>
+	<input type="checkbox" name="food"> 돈까스 <br>
+	<input type="checkbox" name="food"> 김밥 <br>
+	<input type="checkbox" name="food"> 우동 <br>
+	<input type="checkbox" name="food"> 라면 <br>
+	
+	
+	<table border="1" width="500">
+		<tr>
+			<th width="50"> 번호 </th>
+			<th width="400"> 주문상품  </th>
+			<th width="50"> 수량 </th>
+		</tr>
+		
+		<tr>
+			<th width="50" align="center"> 1 </th>
+			<th width="400"> 노르웨이 연어세트  </th>
+			<th width="50" align="center">
+				<select name="cnt1">
+					<option value="1"> 1개 </option>
+					<option value="2" selected> 2개 </option>
+					<option value="3"> 3개 </option>
+				</select>
+			</th>
+		</tr>
+		
+		<tr>
+			<td align="right">
+				<input type="button" value="저장 ">
+			</td>
+		</tr>
+	</table>
+	
+</body>
+</html>
