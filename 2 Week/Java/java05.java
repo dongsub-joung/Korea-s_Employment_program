@@ -86,7 +86,7 @@ class Ex {
                 System.out.println("You are WIN");
                 break;
             case 0:
-                System.out.println("Drow");
+                System.out.println("Draw");
         }
     }
 }
