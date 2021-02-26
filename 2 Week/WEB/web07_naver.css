@@ -1,0 +1,27 @@
+/* 네이버 클론하려고 들어가니 이미지를 이용한 것임. 여기선 텍스트로 진행함. */
+/* https://static.nid.naver.com/images/ui/login/pc_sp_login_190522.png */
+
+body {
+    height: 100%;
+    background: #f5f6f7;
+    font-family: Helvetica, Dotum, sans-serif;
+    font-size: 12px;
+}
+
+select.language {
+    float: left;
+}
+
+a.logo {
+    color: transparent;
+    display: block;
+    overflow: hidden;
+    width: 231px;
+    height: 44px;
+    margin: 0 auto;
+    background-position: -1px -1px;
+    font-size: 15px;
+} 
+a.logo::before {
+    
+}

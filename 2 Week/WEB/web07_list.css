@@ -1,0 +1,61 @@
+h1 {
+    background-color: antiquewhite;
+    width: 50%
+}
+
+/* The Complete Poems */
+.list_style_type ol{
+    /* 
+    순서없는 목록
+    > none, disc, circle, square
+    */
+    list-style-type: lower-roman;
+}
+
+
+/* 일뤼미나시옹(Illuminations) */
+.list_style_position>ul {
+    width: 250px;
+}
+.list_style_position>li {
+    margin: 10px;
+}
+ul.illuminations {
+    list-style-position: outside;
+}
+ul.season {
+    list-style-position: inside;
+}
+
+
+/* 랭보 시선집 */
+.list_style_image>ul {
+    list-style-image: url();
+}
+.list_style_image>li {
+    margin: 10px 0px 0px 0px;
+}
+
+
+/* 애드거 일런 포 */
+.list_style ul{
+    list-style: inside circle;
+    width: 300px;
+}
+.list_style li{
+    margin: 10px 0px 0px 0px;
+}
+
+
+/* 연습 예제: 시 워크샵 */
+.practice {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 90%;
+    color: #666;
+    background-color: #f8f8f8;
+}
+
+.practice li {
+    list-style-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fkr.123rf.com%2Fphoto_86307988_%25EC%2598%25A4%25EB%25A5%25B8%25EC%25AA%25BD-%25ED%2599%2594%25EC%2582%25B4%25ED%2591%259C.html&psig=AOvVaw392b_-Tgqmyr9iepGr1mlL&ust=1614409264064000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMiygqr9hu8CFQAAAAAdAAAAABAD");
+    list-style: 1.6em;
+}
