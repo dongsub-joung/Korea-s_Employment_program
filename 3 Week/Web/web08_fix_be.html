@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> title </title>
+    <style>
+
+        <!-- 반응형 넓이 예제 -->
+       body {
+            width: 90%;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+            border: 1px solid #ff5544;
+        }
+
+        #hedaer, #content, #footer, #nav {
+            text-align: center;
+            background-color: #efefef;
+            border: 1px solid #ff5544;
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #content {
+            height: 300px;
+            overflow: auto;
+            height: 50%;
+        }
+
+        .column1 .column2 .column3 {
+            float: left;
+            width: 31.3%;
+            margin: 1%
+            background-color: pink;
+        }
+
+        ul li {
+            display: inline;
+            border: 1px solid #ff5544;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <h1>유동, 반응형 레이아웃</h1>
+        <ul>
+            <li>메뉴 1</li>
+            <li>메뉴 2</li>
+            <li>메뉴 3</li>
+        </ul>
+    </div>
+
+    <div id="content">
+        특징
+        <div class="colums">
+            <p class="column1"> 컬럼1 </p>
+            <p class="column2"> 컬럼2 </p>
+            <p class="column3"> 컬럼3 </p>
+        </div>
+    </div>
+
+    <div id="footer">
+        copywirter 2021
+    </div>
+
+</body>
+</html>
