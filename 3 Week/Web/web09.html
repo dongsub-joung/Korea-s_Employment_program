@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> title </title>
+    <style>
+        body {
+            margin: 30px 30px;
+        }
+
+
+        div.gred {
+            height: 200px;
+            background-image: linear-gradient(#334455, #667788);
+        }
+
+        div.gred2 {
+            background-image: linear-gradient();
+        }
+
+
+        div.ex_like_class {
+            font-size: 150%;
+        }
+        a.p_class {
+            text-decoration: none;
+        }
+        a.p_class:hover {
+            color: green;
+            font-size: 120%;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+        #box:hover {
+            background-color: orange;
+            width: 200%;
+            height: 200%;
+        }
+
+
+        p.p_element::first-line {
+            font-weight: bold;
+        }
+        p.p_element_02::first-letter {
+            font-size: 200%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 그라데이션 예제 -->
+    <h2>무지개 모양 만들기(세로 다단 배치)</h2>
+    <div class="gred grad1">
+        <h3> css 배경이미지 넣기 </h3>
+    </div>
+
+    <div class="gred grad2">
+        css 배경이미지 넣기 2
+    </div>
+
+    <!-- 유사 클래스 예제 ::hover -->
+    <h2>유사클래스 예제 :hover</h2>
+    <div class="ex_like_class">
+        <p> 
+            <a class="p_class" href="http://www.naver.com"> naver</a>
+        </p>
+        <p>
+            <a class="p_class" href="http://www.google.com"> google</a>
+        </p>
+    </div>
+
+    <div id="box">
+        커지면서 색이 변하는 박스
+    </div> <br><br>
+    <!-- 예제 끝 -->
+
+    <!-- 유사 클래스 예제  ::first-line -->
+    <h2> 유사 클래스 예제 ::first</h2>
+    <div class="ex_3">
+        <p class="p_element">
+            화면 넓이가 늘어날 수록 굵은 글씨로 변합니다. (::first-line) 화면 넓이가 늘어날 수록 굵은 글씨로 변합니다. (::first-line) 화면 넓이가 늘어날 수록 굵은 글씨로 변합니다. (::first-line) 화면 넓이가 늘어날 수록 굵은 글씨로 변합니다. (::first-line) 화면 넓이가 늘어날 수록 굵은 글씨로 변합니다. (::first-line)
+        </p>
+        <p class="p_element_02">
+            첫번째 글자만 커집니다. (:first-letter)
+        </p>
+    </div>
+    <!-- 예제 끝 -->
+</body>
+</html>
