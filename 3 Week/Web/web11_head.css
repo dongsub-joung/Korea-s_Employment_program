@@ -1,0 +1,87 @@
+body {
+	background-color: lightgray;
+	font-family: Arial, Verdana, sans-serif;
+}
+div.wrapper {
+	background-color: #fafafa;
+	/*일반적 넓이*/
+	width: 960;
+	margin: 0 auto;
+	border: 1px solid red;
+}
+
+/* logo */
+div #logo {
+	background-color: #3882c7;
+	color: #ffffff;
+	font-size: 24px;
+	padding-left: 32px;
+	padding-top: 16px;
+	height: 40px;
+	font-weight: bold;
+}
+
+/* nav, menux */
+div #nav {
+	background-color: #202020;
+	height: 38px;
+
+}
+ul.menu {
+	/* 점 없애기 */
+	list-style-type: none;
+	margin: 0;
+	padding: 5px;
+}
+ul.menu li {
+	float: left;
+	padding: 5px 15px;
+	border-right: 1px solid #ffffff;
+}
+ul.menu li a {
+	text-decoration: none;
+	color: #ffffff;
+	/* border-right가 있어서 */
+	margin: 0px 6px;
+}
+ul.menu li a.active, ul.menu li a:hover {
+	color: #ffff00;
+}
+
+.menu a, address a{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+
+/* main content */
+#center {
+	padding: 20px;
+	border-top: 1px solid #202020;
+}
+h2 {
+	font-size: 22px;
+	margin: 8px 8px 16px 4px;
+}
+h3 {
+	font-size: 18px;
+	margin: 12px 8px 4px 9px;
+}
+h4 {
+	font-size: 14px;
+	margin: 12px 8px 4px 12px;
+}
+
+p {
+	margin: 1px 8px 8px 24px;
+}
+
+/* footer */
+#footer {
+	text-align: right;
+	padding: 15px;
+	background-color: #cdcdcd;
+}
+address a {
+	color: #ff0000;
+}

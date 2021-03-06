@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+      #p1 { 
+        background-color: rgb(255,0,0); 
+        opacity: 0.1;
+      }
+      #p2 { 
+        background-color: rgb(0,255,0); 
+        opacity: 0.2;
+      }
+      #p3 { 
+        background-color: rgb(0,0,255); 
+        opacity: 0.3;
+      }
+      #p4 { 
+        background-color: rgb(192, 192,192); 
+        opacity: 0.4;
+      }
+      #p5 { 
+        background-color: rgb(255,255,0); 
+        opacity: 0.5;
+      }
+      #p6 { 
+        background-color: rgb(255,0,255); 
+        opacity: 0.6;
+      }
+      #p7 { 
+        background-color: rgb(255,255,0); 
+        opacity: 0.7;
+      }
+      #p8 { 
+        background-color: rgb(192, 192,192); 
+        opacity: 0.8;
+      }
+      #p9 { 
+        background-color: rgb(0,0,255); 
+        opacity: 0.9;
+      }
+      #p10 { 
+        background-color: rgb(0,255,0); 
+        opacity: 1.0;
+      }
+      #p11 { 
+        background-color: rgb(255,0,0); 
+        opacity: 1.1;
+      }
+
+
+      .text_shadow {
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+      }
+      .text_shadow2 {
+        color: white;
+        text-shadow: 0px 2px 4px #000000;
+      }
+      .text_shadow3 {
+        color: white;
+        text-shadow: 2px 0px 4px #000000;
+      }
+      .text_shadow4 {
+        color: white;
+        text-shadow: 2px 2px 0px #000000;
+      }
+      .text_shadow5 {
+        color: white;
+        text-shadow: 0px 0px 0px #000000;
+      }
+
+
+      #grad1 {
+        height: 200px;
+        /*background: -webkit-linear-gradient(red, blue)*/
+        /*background: -moz-linear-gradient(red,blue);*/
+        background: linear-gradient(red,blue);
+      }
+      
+
+      #animation {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: relative;
+        /*-webkit-animation-name: example;
+        -webkit-animation-duration: 2s;
+        -webkit-animation-iteration-count: 2;*/
+        animation-name: example;
+        animation-duration: 2s;
+        animation-iteration-count: 5;
+      }
+      @keyframes example {
+        0% { background-color: red; left: 0px; top: 0px; }
+        25%{ background-color: yellow; left: 200px; top: 0px; }
+        50%{ background-color: blue; left: 200px; top: 200px; }
+        75%{ background-color: green; left: 0px; top: 200px; }
+        100%{ background-color: red; left: 0px; top: 0px; }
+      }
+    </style>
+</head>
+
+<body>
+<!-- JS: canvas -->
+  <h1> JS: canvas </h1>
+   <canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">
+   		qwerasdfzxcvbnbghjktyuiqwerasdfzxcvbnbghjktyuiqwerasdfzxcvbnbghjktyuiqwerasdfzxcvbnbghjktyuiqwerasdfzxcvbnbghjktyuiqwerasdfzxcvbnbghjktyuiqwerasdfzxcvbnbghjktyui
+   </canvas>
+<!-- JS: canvas END -->
+
+
+
+   <br>
+<!-- CSS: opacity -->
+   <h1>CSS: opacity</h1>
+   <p>RGB colors with opacity</p>
+   <p id="p1">Red</p>
+   <p id="p2">Green</p>
+   <p id="p3">Blue</p>
+   <p id="p4">Grey</p>
+   <p id="p5">Yellow</p>
+   <p id="p6">Carise</p>
+   <p id="p7">Yellow</p>
+   <p id="p8">Grey</p>
+   <p id="p9">Blue</p>
+   <p id="p10">Green</p>
+   <p id="p11">Red</p>
+   <script type="text/javascript">
+   		var c= document.getElementById("myCanvas");
+   		var ctx= c.getContext("2d");
+   		ctx.fillStyle= "#FF0000";
+   		ctx.fillRect(0,0,150,75);
+   </script>
+<!-- CSS: opacity END -->
+
+
+  <br>
+  <h1 class="text_shadow"> CSS: text shadow 2:2:4 </h1>
+  <h1 class="text_shadow2"> CSS: text shadow 0:2:4 </h1>
+  <h1 class="text_shadow3"> CSS: text shadow 2:0:4</h1>
+  <h1 class="text_shadow4"> CSS: text shadow 2:2:0</h1>
+  <h1 class="text_shadow5"> CSS: text shadow 0:0:0</h1>
+
+
+  <br>
+  <!-- Linear Gradient -->
+  <h1>Linear Gradient - Top to Bottom</h1>
+  <div id="grad1"></div>
+  <!-- Linear Gradient END -->
+
+
+  <br>
+  <h1> CSS: Animation effect </h1>
+  <div id="animation"></div>
+
+
+  <br>
+  
+</body>
+</html>
