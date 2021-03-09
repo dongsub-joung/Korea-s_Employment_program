@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class java10 {
 
-    static String[] str_title= {"국어", "영어", "수학", "총점", "평균"};
+    static String[] str_title= {"Korean", "English", "Math", "Total", "Avg"};
     final static int GRADES= 4;
 
     public void printGrade()
@@ -11,7 +11,7 @@ public class java10 {
         Scanner sc= new Scanner(System.in);
         final int GRAFES= 5;
 
-        System.out.println("학생수를 입력해주세요.");
+        System.out.println("Please enter the number of the student.");
         final int STUDENT= sc.nextInt();
 
 //        int[] i_arr= new int[MAX];
@@ -22,7 +22,7 @@ public class java10 {
 
         for (int j=0; j<STUDENT; j++)
         {
-            System.out.printf("-- %d번째 학생의 성적을 입력해주세요. -- \n", j+1);
+            System.out.printf("-- Please enter the grade of the %d student -- \n", j+1);
             for (int i=0; i<GRAFES; i++)
             {
                 System.out.printf("%c  ", c_title[i]);
@@ -39,7 +39,7 @@ public class java10 {
         for (char[] value : c_grade)
         {
             int i= 0;
-            System.out.printf("%d 번째 학생 성적은..\n", j);
+            System.out.printf("The %d student grade is\n", j);
             for (char element : value)
             {
                 System.out.printf("%c: %c  \n", c_title[i], element);
@@ -51,7 +51,7 @@ public class java10 {
 
     public void printScore(int[][] i_arrs)
     {
-        System.out.printf("번호\t\t");
+        System.out.printf("Student Number: \t\t");
         for(String value : str_title) System.out.printf("%s\t", value);
         System.out.println();
         System.out.println("=========================");
@@ -79,14 +79,14 @@ public class java10 {
 //        jv.printGrade();
 
         Scanner sc= new Scanner(System.in);
-        System.out.println("학생 수를 입력해주세요.");
+        System.out.println("Please enter the number of the student.");
         final int STUDENT= sc.nextInt();
         int[][] i_arrs= new int[STUDENT][GRADES];
 
         int sum= 0;
         for (int i=0; i<STUDENT; i++)
         {
-            System.out.println(i+1+"번째 학생의 성적을 입력해주세요.");
+            System.out.println("Please enter the grade of the "+ i+1 +"student.");
             for (int j=0; j<GRADES-1; j++)
             {
                 while (true)

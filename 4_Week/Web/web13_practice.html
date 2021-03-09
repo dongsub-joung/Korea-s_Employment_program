@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <style>
+        body {
+            background-image: url("web13_img/P1_bg.jpg");
+            background-color: #f9f9f9;
+            color: #666666;
+            margin: 0;
+            background-position: center;
+            /* 글자를 잘 보이게 정렬?*/
+            line-height: 1.5em;
+            font-family: Georgia, times, serif;
+        }
+
+        div.wrapper {
+            width: 940px;
+            margin: 20px auto;
+            border: 2px solid #000000;
+            background-color: #ffffff;
+            border-radius: 5%;
+        }
+
+
+        header {
+            height: 160px;
+            background-image: url("web13_img/P1_headr.jpg");
+        }
+        header h1 {
+            text-indent: -600px;
+            /* 이미지를 넣기위한 공간 확보 */
+            height: 130px;
+            width: 940px;
+            margin: 0;
+        }
+
+
+        nav {
+            height: 30px;
+            background-color: #aeaca9;
+            color: #ffffff;
+        }
+        nav ul {
+            margin: 0;
+            padding: 5px 0px 5px 30px;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 40px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+
+        /* Main Content */
+        section.courses {
+            float: left;
+            width: 656px;
+            border-right: 1px solid #eeeeee;
+        }
+        figure {
+            float: left;
+            width: 285px;
+            margin: 20px;
+            padding: 6px;
+            border: 1px solid #eeeeee;
+        }
+        hgroup {
+            margin-top: 45px;
+        }
+        .popular_recipes {
+            text-align: left;
+            padding-left: 10px;
+        }
+        .popular_recipes div {
+            /*text-align: center;*/
+        }
+        #first_img_area {
+            margin-top: -25px;
+        }
+        #second_area {
+            margin-top: 100px;
+        }
+        #second_img_area {
+            margin-top: -20px;
+        }
+
+        aside {
+            padding: 0px 0px 0px 5px;
+            margin: 0px 0px 0px 30px;
+            text-align: center;
+
+        }
+        aside section a {
+            display: block;
+            padding: 5px;
+            text-decoration: none;
+            color: #dd6681; 
+        }
+
+        footer {
+            clear: both;
+            height: 30px;
+            background-color: #aeaea9;
+            color: #ffffff;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Yoko's Kitchen</h1>
+            <nav>
+                <ul>
+                    <li><a href="" class="current">Home</a></li>
+                    <li><a href="">Class</a></li>
+                    <li><a href="">Catering</a></li>
+                    <li><a href="">Introduce</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="courses">
+            <article>
+                <figure id="first_img_area">
+                    <img src="web13_img/P1_bok-choi.jpg" alt="Bok Choi" />
+                    <figcaption>Bok Choi</figcaption>
+                </figure>
+                <hgroup>
+                    <h2>Japanese vegetarian</h2>
+                    <h3>a five-week course in London</h3>
+                </hgroup>
+                <p>For five weeks, he introduces traditional Japanese vegetarian dishes and teaches rice and noodles.</p>
+            </article>    
+            <article>
+                <figure id="second_img_area">
+                    <img src="web13_img/P1_teriyaki.jpg" alt="Teriyaki sauce" />
+                    <figcaption>Teriyaki Sauce</figcaption>
+                </figure>
+                <hgroup id="second_area">
+                    <h2>Source Master Class</h2>
+                    <h3>WorkShop per day</h3>
+                </hgroup>
+                <p>The one-day intensive course will explore how to make the most delicious sauce available in various Japanese dishes.</p>
+            </article>    
+        </section>
+        <aside>
+            <section class="popular_recipes">
+                <h2>A popular recipe</h2>
+                <div>
+                    <a href="">Yakitori - 구운 닭</a>
+                    <a href="">Tsukune - 닭꼬치</a>
+                    <a href="">Okonomiyaki- 해물 부침개</a>
+                    <a href="">Mizutaki - 영계백숙</a>
+                </div>
+            </section>
+            <section class="contact-details">
+                <h2>Contact</h2>
+                <p>Yoko's Kitchen<br />
+                    27 Redchurch Street<br />
+                    Shoreditch<br />
+                    London E2 7DP</p>
+            </section>
+        </aside>
+        <footer>
+            &copy; 2020 Yoko's Kitchen
+        </footer>
+    </div><!-- .wrapper -->
+</body>
+</html>

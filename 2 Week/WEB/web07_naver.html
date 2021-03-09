@@ -4,43 +4,192 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 네이버 로그인 클론 코딩 </title>
-    <link rel="stylesheet" href="web07_naver.css">
+    <!-- <link rel="stylesheet" href="web07_naver.css"> -->
+    <style type="text/css">
+        body {
+            height: 100%;
+            background: #f5f6f7;
+            font-family: Helvetica, Dotum, sans-serif;
+            font-size: 12px;
+            text-align: center;
+        }
+    /* 헤더 */
+        .header {
+            text-align: center;
+            position: relative;
+            box-sizing: border-box;
+            padding: 50px 50px 50px 100px;
+        }
+        /*  언어 선택 */
+        select.opt_area {
+            width: 80px;
+            height: 30px;
+            font-family: inherit;
+            top: 20px;
+            right: 40px;
+        }
+        #language_opt {
+            line-height: 18px;
+            font-weight: 400;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            cursor: pointer;
+            -webkit-appearance: none;
+            text-align: center;
+            position: absolute;
+        }
+        
+        /* 로고 */
+        a.logo {
+            background-image: url(https://ssl.pstatic.net/static/nid/login/m_logo_naver.png);
+            background-repeat: no-repeat;
+            background-position: 50% 0;
+            background-size: contain;
+            color: transparent;
+        }
+        .logo.blind {
+            width: 1px;
+            height: 1px;
+            margin: -1;
+            position: absolute;
+            clip: rect(0 0 0 0);
+            overflow: hidden;
+        }
+
+        /* 메인 */
+        .main {
+            width: 768px;
+            margin: 0 auto;
+        }
+        div.content {
+            width: 380px;
+            margin: 0 auto;
+            padding-bottom: 30px;
+        }
+        .main fieldset {
+            border: none;
+        }
+        #login_btn {
+            color: white;
+            background-color: #00C850;
+            border: none;
+            width: 350px;
+            height: 50px;
+            font-size: 130%;
+        }
+        div.id_ipunt_area {
+            height: 200%;
+        }
+        #id_inpunt {
+            font-size: 150%;
+            padding: 7px 35px 10px 11px;
+            border: 0.5px outset gray;
+        }
+        #pw_input {
+            font-size: 150%;
+            padding: 7px 35px 10px 11px;
+            border: 0.5px outset gray;
+        }
+
+        .login_help a{
+            text-decoration: none;
+            color: gray;
+        }
+        #Find_ID {
+            padding-right: 5px;
+            border-right: 1px solid gray;
+        }
+        #Find_PW {
+            padding-right: 5px;
+            border-right: 1px solid gray;
+        }
+        #login_footer #OFF {
+            color: gray;
+        }
+
+        span.bill_img {
+            background-image: url(https://ssl.pstatic.net/static/nid/login/pc_2step_396_110.png);
+            background-repeat: no-repeat;
+            background-position: 50% 0;
+            background-size: contain;
+        }
+    </style>
 </head>
 <body>
     
     <div class="wrapper">
         <div class="header">
-            <table>
-                <td>
-                    <tr>
-                        <select class="language">
-                            <option> 한국어 </option>
-                            <option> A </option>
-                            <option> B </option>
-                            <option> C </option>
-                        </select>
-                    </tr>
-                </td>
+            <table class="language_area">
+                <select class="opt_area" id="language_opt">
+                    <option> 한국어 </option>
+                    <option> A </option>
+                    <option> B </option>
+                    <option> C </option>
+                </select>
             </table>
             
-            <a class="logo" href="https://www.naver.com">
-                <span class="blind"> NAVER </span>
-            </a>
+            <h1>
+                <a class="logo" href="https://www.naver.com" rel="img">  
+                    <img src="https://ssl.pstatic.net/static/nid/login/m_logo_naver.png">
+                    <span class="blind"> NAVER </span>
+                </a>
+            </h1>
         </div>
 
         <div class="main">
-            <h2> 안녕하세요 웹 표준 샘플 사이트입니다.</h2>
-            <p> 
-                좀 더 많은 정보를 얻고 싶으시다면 
-                <a href="www.webcoding.co"> www.webcoding.co. </a>
-                를 방문하세요
-            </p>
+            <div class="content">
+                <fieldset class="login_form">
+                    <form>
+                        <div id="id_ipunt_area">
+                            <input id="id_inpunt" type="text" name="" placeholder="아이디" size="25">
+                        </div>
+
+                        <div id="pw_inpunt_area">
+                            <input id="pw_input" type="password" name="" placeholder="비밀번호" size="25">
+                        </div>
+
+                        <div id="login_btn_area">
+                             <input id="login_btn" type="submit" name="" value="로그인"> 
+                        </div>
+                        
+                        <div id="login_footer">
+                             <input type="checkbox" name=""> 로그인 상태 유지
+                            
+                            <span id="OFF"> 
+                                <span> IP 보안 </span>
+                                OFF 
+                            </span>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
         </div>
 
-        <div class="footer">
-            <address> 
-                &copy; copywriter 2018 
-            </address>
+        <div class="middle">
+            <strong>더욱 간편한 로그인</strong>
+            <div class="second_login">
+                <form>
+                    <figure>
+                        <figcaption></figcaption>
+                    </figure>
+                    <input type="button" name="" value="QR코드 로그인">
+                    <input type="button" name="" value="일회용 번호 로그인">
+                </form>
+                <span class="login_help">
+                    <a href="https://nid.naver.com/user2/api/route.nhn?m=routeIdInquiry&lang=ko_KR" id="Find_ID">아이디 찾기</a>
+                    <a href="https://nid.naver.com/user2/api/route.nhn?m=routePwInquiry&lang=ko_KR" id="Find_PW">비밀번호 찾기</a>
+                    <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree&lang=ko_KR">회원가입</a>
+                </span>
+            </div>
+        </div>
+
+
+        <div class="footer"> 
+            <a href="https://m.site.naver.com/0vK5N">
+                <span class="bill_img"></span>
+                <img src="https://ssl.pstatic.net/static/nid/login/pc_2step_396_110.png">
+            </a>
         </div>
     </div>
     

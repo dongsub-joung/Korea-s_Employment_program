@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+
+    	.ex00_wrappaer {
+    		font-family: Arial;
+    		color: #111111;
+    	}
+    	.ex00_table {
+    		width: 600px;
+    	}
+    	.ex00_th, .ex00_td {
+    		padding: 7px 10px;
+
+    	}
+    	.ex00_th {
+    		border-top: 1px solid #999999;
+    		border-bottom: 2px solid #111111;
+    		letter-spacing: 0.1em;
+    	}
+
+    	.even {
+    		background-color: #efefef;
+    	}
+    	.money {
+    		text-align: right;
+    	}
+/* END */
+
+
+    	.ex01_table {
+    		empty-cells: hide;
+    		/*border-collapse: collapse;*/
+    		border-spacing: 5px 10px 15px 20px;
+    	}
+    	.ex01_td {
+    		border: 1px solid #999999;
+    	}
+/* END */
+
+		
+
+
+    </style>
+</head>
+
+<body>
+
+	<h1>Example table</h1>
+	<div class="ex00_wrappaer">
+		<table class="ex00_table">
+		<tr>
+			<th class="ex00_th">저자</th>
+			<th class="ex00_th">제목</th>
+			<th class="ex00_th">최저경매가격</th>
+			<th class="ex00_th">최고경매가격</th>
+		</tr>
+		<tr class="even">
+			<td class="ex00_td">김세윤</td>
+			<td class="ex00_td">파리의 아침</td>
+			<td class="money ex00_td">5,000,000원</td>
+			<td class="money ex00_td">6,000,000원</td>
+		</tr>
+		<tr>
+			<td class="ex00_td">명세인</td>
+			<td class="ex00_td">바다와 노인</td>
+			<td class="money ex00_td">4,000,000원</td>
+			<td class="money ex00_td"> 7,000,000원</td>
+		</tr>
+		<tr class="even">
+			<td class="ex00_td">김동섭</th>
+			<td class="ex00_td">도시의 거리</th>
+			<td class="money ex00_td">1,000,000원</td>
+			<td class="money ex00_td">2,100,000원</td>
+		</tr>
+		<tr>
+			<td class="ex00_td">최정인</td>
+			<td class="ex00_td">농부와 시골마을</td>
+			<td class="money ex00_td">3,000,000원</td>
+			<td class="money ex00_td">5,000,000원</td>
+		</tr>
+	</table>
+	</div>
+
+
+	<h1>Example table attibute options</h1>
+	<table class="ex01_table">
+		<tr>
+			<td class="ex01_td">Number</td>
+			<td class="ex01_td">Name</td>
+			<td class="ex01_td">Age</td>
+		</tr>
+		<tr>
+			<td class="ex01_td">1</td>
+			<td class="ex01_td">Jhn</td>
+			<td class="ex01_td"></td>
+		</tr>
+	</table>
+
+
+	<h1>Example table attibute options 02</h1>
+	<table>
+		<colgroup>
+			<col width="50"></col>
+			<col width="200"></col>
+			<col width="100"></col>
+		</colgroup>
+	</table>
+
+
+	
+</body>
+</html>

@@ -5,10 +5,10 @@ public class java11 {
     public void exam_012()
     {
         Scanner sc= new Scanner(System.in);
-        System.out.println("double 입력");
+        System.out.println("Please input double");
         double num= sc.nextDouble();
-        if (num >= 0) System.out.println("양수");
-        else System.out.println("음수");
+        if (num >= 0) System.out.println("Positive");
+        else System.out.println("Nagative");
     }
 
     public boolean condition(byte c) {
@@ -22,13 +22,13 @@ public class java11 {
     public void exam_013()
     {
         Scanner sc= new Scanner(System.in);
-        System.out.println("문자를 입력하세요.");
+        System.out.println("Please input a char.");
         char c_chr= sc.next().charAt(0);
         byte chr= (byte) c_chr;
         if (condition(chr) || condition_two(chr))
-            System.out.println("알파벳");
+            System.out.println("$ azAZ");
         else
-            System.out.println("알파벳이 아님");
+            System.out.println("Not $azAZ");
     }
 
     public int facto(int n){
@@ -38,7 +38,7 @@ public class java11 {
     public void exam_015()
     {
         Scanner sc= new Scanner(System.in);
-        System.out.println("팩토리얼 구하기! 정수 입력!");
+        System.out.println("Get the factorial, Please input the integer!");
         final int N= sc.nextInt();
         int result= facto(N);
         System.out.printf("!%d: %d", N,result);
@@ -51,7 +51,7 @@ public class java11 {
     public void exam_017()
     {
         final int MAX_RANGE= 10;
-        System.out.printf("Range가 %d인 피보나치 배열 출력\n", MAX_RANGE);
+        System.out.printf("Range: %d ,Output Fibonacci array\n", MAX_RANGE);
         System.out.println("==============================");
         for (int i=0; i<MAX_RANGE; i++) System.out.printf("%d\t", pibonachi(i));
     }

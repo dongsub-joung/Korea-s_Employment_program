@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        div.box {
+            width: 100px;
+            height: 100px;
+            border: 2px solid;
+            text-align: center;
+            font-size: 200%;
+        }
+        div.L {
+            float: left;
+        }
+        div.B {
+            float: left;
+            clear: both;
+        }
+        div.R {
+            float: left;
+            margin-top: -310px;
+        }
+        div.T {
+          float: left;
+          position: relative;
+        }
+
+        div.left {
+            background-color: red;
+        }
+        div.btn {
+            background-color: yellow;
+            float: left;
+        }
+        div.right {
+            background-color: green;
+        }
+        #b11 {
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+       <div class="L">
+           <div class="box left">1</div>
+           <div class="box left">2</div>
+           <div class="box left">3</div>
+           <div class="box left">4</div>
+       </div>
+       
+       <div class="B">
+           <div class="box btn">5</div>
+           <div class="box btn">6</div>
+           <div class="box btn">7</div>
+           <div class="box btn">8</div>
+       </div>
+
+       <div class="R">
+           <div class="box right">12</div>
+           <div class="box right">11</div>
+           <div class="box right">10</div>
+           <div class="box right">9</div>
+       </div>
+
+       <div class="T">
+           <div class="box top" id="b12">13</div>
+           <div class="box top" id="b11">14</div>
+           <div class="box top">15</div>
+           <div class="box top">16</div>
+       </div>
+    </div>
+</body>
+</html>
