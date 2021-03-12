@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" type="text/css" href="web14_example.css"> -->
+    <style type="text/css">
+    	.ex01_section div.out {
+    		border: 1px solid black;
+    		width: 500px;
+    	}
+    	.ex01_section div.red {
+    		height: 100px;
+    		width: 100px;
+    		background-color: red;
+    		color: #ffffff;
+    		text-align-last: center;
+    		line-height: 100px;
+    		transition: width 2s,
+    					background-color 2s,
+    					font-size 2s;
+    		transition-timing-function: ease;
+    	}
+    	.ex01_section div.red:hover {
+    		width: 500px;
+    		background-color: orange;
+    		font-size: 150%;
+    	}
+    </style>
+</head>
+
+<body>
+
+<br>
+    <h1>div box width size</h1>
+    <div class="ex01">
+        <section class="ex01_section">
+            <div class="out">
+            	<div class="red">UI구현</div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
