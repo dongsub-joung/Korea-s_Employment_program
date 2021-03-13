@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" type="text/css" href="web14_example.css"> -->
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<br>
+	    <h1>Write DOM using JS</h1>
+
+	    <br>
+	    <div class="ex01">
+	    	<br>
+	    	<h2>alert Something</h2>
+	        <form>
+	        	<input type="button" value="Print MSG" onclick="MEG();">
+	        </form>
+
+	        <br>
+	        <h2> Change BG Color </h2>
+	        <form>
+	        	<input type="button" value="Change BG-color" onclick="document.bgColor='lightblue'">
+	        	<input type="button" value="Change BG-color: white" onclick="changeWhite();">
+	        </form>
+
+	        <br>
+	        <h2> Change Img </h2>
+	        <form>
+	        	<input type="button" value="ON" onclick="changeOn();">
+	        	<img id="img" src="web16_img/Off.GIF">
+	        	<input type="button" value="OFF" onclick="changeOff();">
+	        </form>
+
+	        <br>
+	        <h2>prompt를 이용해서 키보드입력을 받고 암호체크</h2>
+	        <input type="button" value="Check Password" name="" onclick="checkPasswd();">
+
+	        <br>
+	        <h2 id="demo">Display</h2>
+	        <input id="demo_btn" type="button" value="invisiable Toggle" name="" onclick="jhide();">
+
+	        <br>
+	        <h2>계산기</h2>
+	        <form>
+	        	<input type="text" name="" id="no1"> 
+
+	        	<input type="button" value="+" onclick="plus();">
+	        	<input type="button" onclick="minus();" value="-">
+	        	<input type="button" onclick="muli();" value="*">
+	        	<input type="button" onclick="divi();" value="/">
+	        	<input type="button" onclick="clear();" value="C">
+
+	        	<input type="text" name="" id="no2"> <br>
+	        	= <input type="text" name="" id="no3">
+	        </form>
+	    </div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	function plus() {
+		num1= document.getElementById("no1").value;
+		num2= document.getElementById("no2").value;
+		num3= parseInt(num1) + parseInt(num2);
+		document.getElementById("no3").value= num3;
+	}
+	function minus() {
+		num1= document.getElementById("no1").value;
+		num2= document.getElementById("no2").value;
+		num3= parseInt(num1) - parseInt(num2);
+		document.getElementById("no3").value= num3;
+	}
+	function muli() {
+		num1= document.getElementById("no1").value;
+		num2= document.getElementById("no2").value;
+		num3= parseInt(num1) * parseInt(num2);
+		document.getElementById("no3").value= num3;
+	}
+	function divi() {
+		num1= document.getElementById("no1").value;
+		num2= document.getElementById("no2").value;
+		num3= parseInt(num1) / parseInt(num2);
+		document.getElementById("no3").value= num3;
+	}
+	
+	// function calculater() {
+	// 	num1= document.getElementById("no1").value;
+	// 	num2= document.getElementById("no2").value;
+	// 	if (minus()) {
+	// 		num3= num3= parseInt(num1) - parseInt(num2);
+	// 		document.getElementById("no3").value= num3;
+	// 	}
+	// 	if (plus()) {
+	// 		num3= num3= parseInt(num1) + parseInt(num2);
+	// 		document.getElementById("no3").value= num3;
+	// 	}
+	// }
+
+	// document.write("안녕하세요 자바스크립트 예제입니다.");
+	function MEG() {
+		alert("JS!");
+	}
+	function changeWhite() {
+		document.bgColor='white';
+	}
+
+	function changeOn() {
+		document.getElementById("img").src="web16_img/On.gif";
+	}
+	function changeOff() {
+		document.getElementById("img").src="web16_img/Off.GIF";
+	}
+
+	function checkPasswd() {
+		passwd= prompt("Enter Password", "");
+		if (passwd == "1234") 
+		{
+			alert("Correct");
+			// location.href= ".html";
+		} else {
+			alert("Discorrect");
+		}
+	}
+
+	var state= 1;
+	function jhide() {
+		if (state == 1)
+		{
+			document.getElementById("demo").style.display="none";
+			document.getElementById("demo_btn").value="Show";
+			state= 0;
+		} else {
+			document.getElementById("demo").style.display="block";
+			state= 1;
+			document.getElementById("demo_btn").value="Hide";
+		}
+		
+	}
+</script>
+</html>

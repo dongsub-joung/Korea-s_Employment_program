@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" type="text/css" href="web14_example.css"> -->
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+	<div class="wrapper">
+        <h2>계산기</h2>
+	        <form>
+	        	<input type="text" name="" id="no1"> 
+
+	        	<!-- <input type="button" value="+" onclick="plus();"> -->
+	        	<button onclick="plus()">=</button>
+	        	<!-- <input type="button" onclick="minus();" value="-">
+	        	<input type="button" onclick="muli();" value="*">
+	        	<input type="button" onclick="divi();" value="/">
+	        	<input type="button" onclick="clear();" value="C"> -->
+	        	<input type="text" name="" id="no2"> <br>
+	        	= <input type="text" name="" id="no3">
+	        </form>
+	    </div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	// preventEventHandler
+	var plus= function(){
+		var num1= document.getElementByTagName("input")[0].value;
+		var num2= document.getElementByTagName("input")[2].value;
+		var result= parseInt(num1) + parseInt(num2);
+		document.getElementByTagName("input")[3]=result;
+	}
+</script>
+</html>
