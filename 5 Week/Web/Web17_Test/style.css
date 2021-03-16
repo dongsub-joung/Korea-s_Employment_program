@@ -1,0 +1,224 @@
+/* Common */
+body {
+	width: 1200px;
+	padding: 0px;
+	margin: 0px;
+}
+header {
+	height: 100%;
+	width: 100%;
+	padding: 0px 0 20px 0;
+}
+section { 
+	width: 45%; 
+	padding: 20px 5px 20px 25px;
+	float: left;
+}
+.nav {
+	background-color: #2f3191;
+	color: #5e5f65;
+}
+ul li {
+	list-style-type: none;
+	color: inherit;
+}
+#circle1 {
+	background-color: black;
+	width:20px;
+	height:20px;
+	border-radius:75px;
+	text-align:center;
+	margin:0 auto;
+	font-size:12px;
+	vertical-align:middle;
+	line-height:150px;
+}
+
+
+/* header */
+header .logo {
+	float: left;
+	margin: 10 0 20 20;
+	padding-left: 15px;
+}
+header .nav {
+
+}
+header .nav .menu {
+	padding-left: 25%;
+	display: inline-block;
+}
+header .nav .menu li, footer .links ul li{
+	float: left;
+	padding: 5px 15px;
+}
+header .nav .menu li a{
+	color: white;
+	text-decoration: none;
+}
+
+
+/* aside */
+aside {
+	float: left;
+	text-align: center;
+	width: 40%; 
+	padding-left: 90px;
+}
+
+aside h4 {
+	font-size: 130%;
+	text-align: left !important;
+}
+aside #month {
+	font-size: 150%;
+}
+.weekd_day_area {
+    width: 100%;
+}
+.weekd_day_area ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.weekd_day_area li {
+    float: left;
+    display: block;
+    width: 14%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin: 0 0 -1px -1px;
+    font-size: 70%;
+}
+.weekd_day_area ul {
+    height: 40px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    /*background: #8e352e;*/
+}
+.weekd_day_area ul li {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 20px;
+    border: none !important;
+    padding: 10px 6px 10px 6px;
+    color: black;
+    font-size: 13px;
+}
+.red_day {
+	color: red !important;
+}
+
+.days_area {
+	margin-left: -35px;
+}
+.days_area li {
+    height: 60px;
+    width: 65px;
+    float: left;
+}
+.days_area li:hover {
+    background: #d3d3d3;
+}
+
+aside .calender {
+	margin-top: -50px;
+}
+
+
+
+/* footer */
+footer {
+	clear: both;
+	color: gray;
+}
+footer .links a{
+	text-decoration: none;
+	color: gray;
+	font-size: 70%;
+}
+footer .link_btn {
+	float: right;
+	padding-left: -20px;
+}
+footer .address {
+	clear: both;
+	font-size: 50%;
+	padding: 20px 0 20px 20px;
+}
+
+
+/* main contents */
+section {
+	margin: 20px;
+}
+section a {
+	text-decoration: none;
+	color: black;
+}
+section article ul li {
+	list-style-type: disc !important;
+	margin: 20px;
+}
+section article ul .data {
+	float: right;
+}
+.main_munu_wrrap {
+	margin-left: -5px;
+}
+
+/* header- menu */
+section {
+	padding: 0;
+	border: 1;
+}
+section nav {
+	padding: 0;
+}
+section .list {
+	border: 2px solid lightgray;
+}
+section nav .main_munu {
+	width: 550px;
+	margin: -10px -10px 20px -10px;
+}
+section nav .main_munu li {
+	float: left;
+	margin: -8px 15px 15px -19px;
+	text-align: center;
+	width: 107px;
+	height: 60px;
+	line-height: 60px;
+	border-left: 1px solid lightgray;
+	border-bottom: 1px solid lightgray;
+	font-size: 120%;
+}
+section nav .main_munu li:hover {
+	background-color: darkblue;
+}
+section nav .main_munu li a:hover{
+	color: white !important;
+}
+.main_content_wrrap {
+	clear: both;
+}
+
+aside .calender #day{
+	background-color: lightblue;
+	width:40px;
+	height:40px;
+	border-radius:75px;
+	text-align:center;
+	margin:0 auto;
+	font-size:12px;
+	vertical-align:middle;
+	line-height:150px;
+	color: black !important;
+	z-index: 1;
+}
+
+aside .calender #day span {
+	z-index: 2;
+}

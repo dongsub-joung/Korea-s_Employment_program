@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
+    <style type="text/css">
+      body {background-image: url("img/bg.JPG");}
+      div .wrap {
+        width: 100%;
+        height: 100%;
+        font-family: sans-serif;
+      }
+      nav, header {
+        background-color: #ffffff;
+      }
+
+      /* nav */
+      nav {
+        background-color: lightgray;
+        margin: 40px 10px 20px 10px;
+      }
+      nav ul {
+        width: 1000px;
+        text-align: center;
+        list-style-type: none;
+        margin: 40px 10px 20px 10px;
+      }
+      nav ul li {
+        display: inline-block;
+        margin: 10px 40px 10px 40px;
+      }
+      nav ul li:hover, nav ul a:hover {
+        background-color: black;
+        color: white;
+      }
+      nav ul a {
+        text-decoration-line: none;
+        color: black;
+        font-size: 130%;
+      }    
+
+
+      .logo{
+        clear: both;
+      }
+      .logo img{
+        padding-left: 20px;
+        float: left;
+      }
+      .search{
+        float: right;
+      }
+
+      content {
+        width: 100%;
+        height: 100%;
+        clear: both;
+      }
+      .main_area .img_area {
+        background-color: white;
+      }
+      .main_area .img_area #main {
+        float: left;
+
+      }
+    </style>
+</head>
+
+<body>
+  <div class="wrap">
+       <nav>
+         <ul class="menu">
+           <li> <a href="#">ABOUT US</a> </li>
+           <li><a href="#">SERVICE</a></li>
+           <li><a href="">CATALOGUE</a></li>
+           <li><a href="#">PRICING</a></li>
+           <li><a href="#">CONTACT</a></li>
+         </ul>
+       </nav>
+       
+       <header>
+          <div class="logo">
+            <img src="../4_Week/Web/web13_img/Logo.png">
+          </div>
+    
+          <aside>
+            <form class="search">
+              <input type="text" size="18">
+              <img src="" hef="img" width="30px" height="30px">
+            </form>
+          </aside>
+       </header>
+
+       <content>
+         <div class="main_area">
+           <div class="img_area">
+             <img src="img/main.JPG" id="main" width="500" height="500">
+             <img src="img/side1.JPG">
+             <img src="img/side2.JPG">
+             <img src="img/side3.JPG">
+             <img src="img/side4.JPG">
+             <img src="img/side5.JPG">
+             <img src="img/side6.JPG">
+           </div>
+         </div>
+       </content>
+        
+       
+  </div><!-- /. wrap -->
+</body>

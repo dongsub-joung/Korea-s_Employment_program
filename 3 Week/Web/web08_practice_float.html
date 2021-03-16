@@ -11,84 +11,108 @@
     		background: lightyellow;
     		font-family: fantasy;
     	}
-    	 .header {
+    	header {
     		text-align: center;
     		font-size: 150%;
     	}
+        content {
+            width: 100%;
+        }
+        content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        content li {
+            float: left;
+            display: block;
+            width: 14.342%;
+            padding: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            margin: 0 0 -1px -1px;
+        }
 
-    	span.month {
-    		font-size: 200%;
-    		width: 750px;
-    		text-align: center;
-    	}
-
-    	div.week_day, div.day {
-    		width: 750px;
-    	}
-    	div.weekd_day p {
-    		float: left;
-    		width: 130px;
-    		text-align: center;
-    		font-weight: bold;
-    		border: 1px solid gray;
-    	}
+        .weekd_day_area ul {
+            height: 40px;
+            background: #8e352e;
+        }
+        .weekd_day_area ul li {
+            text-align: center;
+            text-transform: uppercase;
+            line-height: 20px;
+            border: none !important;
+            padding: 10px 6px;
+            color: #fff;
+            font-size: 13px;
+        }
     	.red_day {
-    		color: red;
-    	}
-    	div.days {
-    		margin-top: 10px;
-    	}
-    	div.days p {
-    		float: : left;
-    		width: 100px;
-    		text-align: right;
-    		border: 1px solid gray;
-    		margin: 0;
-    		height: 50px;
-    		padding: 10px;
-    		font-size: 120%;
-    		overflow: auto;
+    		color: #efefef !important;
     	}
 
-   		
+        .days_area li {
+            height: 150px;
+        }
+   		.days_area li:hover {
+            background: #d3d3d3;
+        }
     </style>
 </head>
 
 <body>
-	<div class="header">
+    <header>
 		<h2>Calender</h2>
 		<div>
 			<span class="month"> 2021.03</span>
 		</div>	
-	</div>
+    </header>
 	
+    <content>
+        <div class="weekd_day_area">
+            <ul>
+                <li class="red_day"> Sunday </li>
+                <li>Monday</li>
+                <li>Tuesday</li>
+                <li>Wednesday</li>
+                <li>Thursday</li>
+                <li>Friday</li>
+                <li class="red_day"> Saturday</li>
+            </ul>
+        </div> 
 
-	<div class="weekd_day">
-		<p class="red_day"> Sun </p>
-		<p> Mon </p>
-		<p> Tue </p>
-		<p> Wed </p>
-		<p> Thu </p>
-		<p> Fir </p>
-		<p class="red_day"> Sat </p>
-	</div> 
+        <div class="days_area">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+            </ul>
 
-	<div class="days">
-		<p>1</p>
-		<p>2</p>
-		<p>3</p>
-		<p>4</p>
-		<p>5</p>
-		<p>6</p>
-		<p>7</p>
-		
-		<p>8</p>
-		<p>9</p>
-		<p>10</p>
-		<p>11</p>
-		<p>12</p>
-		<p>13</p>
-		<p>14</p>
-	</div>
+            <ul>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+                <li>14</li>
+            </ul>
+
+            <ul>
+                <li>15</li>
+                <li>16</li>
+                <li>17</li>
+                <li>18</li>
+                <li>19</li>
+                <li>20</li>
+                <li>21</li>
+            </ul>
+        </div>
+    </content>
+	
 </body>
 </html>

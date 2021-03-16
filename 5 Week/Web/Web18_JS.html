@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		h1 {
+			padding-top: 30px;
+		}
+	</style>
+</head>
+<body> 
+	<input type="button" value="*-triangle" name="" onclick="printStart();">
+</body>
+<script type="text/javascript">
+	document.write("<h1> Ex1 </h1>");
+	const AGE= 27;
+	document.write(AGE);
+	document.write("<br>");
+	const PI= 3.141592;
+	document.write(PI);
+	const F_NAME= "치킨";
+	document.write("<br>");
+	document.write(F_NAME);
+
+	document.write("<h1> Ex2 </h1>");
+	// MDN- document.write
+    // function newContent() {
+    //   alert("load new content");
+    //   document.open();
+    //   document.write("<h1>Out with the old - in with the new!</h1>");
+    //   document.close();
+    // }
+
+    // return String absolute path
+    let str= document.documentURI;
+    console.log(str);
+
+    // write html *-triangle
+    function printStart() {
+    	let star= "*";
+    	for (var i = 0; i<10; i++) 
+	    {
+	    	// \n 안됨.
+	    	document.writeln(`${star}`);
+	    	document.write("<br>");
+	    	star+= "*";
+	    }
+    }
+
+</script>
+</html>
