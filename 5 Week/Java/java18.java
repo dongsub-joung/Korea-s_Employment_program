@@ -85,7 +85,8 @@ class Line
 }
 
 public class java18 {
-    public static String printGraph(char ch, int value)
+
+    private static String printGraph(char ch, int value)
     {
         String result= "";
         for (int i=0; i<value; i++) result+= ch;
@@ -99,18 +100,19 @@ public class java18 {
         int[] counters= new int[RANGER];
         final int N_LEN= numbers.length;
 
-//        0~9가 몇번씩 나왔는지 나타내는 counters 증가
-        for (int i=0; i<N_LEN; i++)
-            counters[numbers[i]]++;
+        for (int i=0; i<RANGER; i++) numbers[i]= (int) (Math.random()*RANGER+1);
 
-        for (int i=0; i< counters.length; i++)
-            System.out.printf("%d 갯수: %s  %d", i,printGraph('❑', counters[i]), counters[i]);
+//        0~9가 몇번씩 나왔는지 나타내는 counters 증가
+        for (int i=0; i<N_LEN; i++) counters[numbers[i]]++;
+
+        for (int i=0; i<counters.length; i++)
+            System.out.printf("%d 갯수: %s  %d \n", i, printGraph('❑', counters[i]), counters[i]);
     }
 
     public static void main(String[] args)
     {
 //        랜덤한 숫자배열을 생성하고 시각화하기
-//        init();
+        init();
 
 //        Ex: overload
 //        OverLoadEx ex= new OverLoadEx();
@@ -120,20 +122,20 @@ public class java18 {
 //        Line line= new Line('+',30);
 
 //        Ex01
-        System.out.println("-- Ex01 --");
-        Practice01 p1= new Practice01(12);
-        System.out.println("절대값 출력: "+p1.myABS());
-
-//        Ex02
-        System.out.println("-- Ex02 --");
-        Practice02.PrintMultiplicationTable(2,1);
-
-//        Ex03
-        System.out.println("-- Ex03 --");
-        StudentVo sv= new StudentVo("kim");
-        sv.setId(2014);
-        System.out.println(sv.getName());
-        System.out.println(sv.getId());
+//        System.out.println("-- Ex01 --");
+//        Practice01 p1= new Practice01(12);
+//        System.out.println("절대값 출력: "+p1.myABS());
+//
+////        Ex02
+//        System.out.println("-- Ex02 --");
+//        Practice02.PrintMultiplicationTable(2,1);
+//
+////        Ex03
+//        System.out.println("-- Ex03 --");
+//        StudentVo sv= new StudentVo("kim");
+//        sv.setId(2014);
+//        System.out.println(sv.getName());
+//        System.out.println(sv.getId());
 
     }
 }
