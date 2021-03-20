@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		h1 { padding-top: 30px; }
+		span { font-size: 200%; }
+		table, tr ,td { border: 1px solid black; }
+		td { width: 50px; text-align: center; font-size: 1.1em; }
+	</style>
+</head>
+
+<body> 
+	<h1> <a href="#" onclick="example01();">총합: 2의 배수 && 5의 배수(1~100)</a></h1>
+	<span id="ex01"></span>
+
+	<h1> <a href="#" onclick="example02();">2개의 랜덤한 숫자 출력하기</a></h1>
+	<span id="ex02_r1"></span> <span></span> <span id="ex02_r2"></span>
+
+	<h1> <a href="#" onclick="example03();">구구단 출력하기: New html</a></h1>
+	<h1> <a href="#" onclick="example03_ver02();">구구단 출력하기</a></h1>
+	<table id="ex03_r">
+		<tr id="one"></tr>
+		<tr id="two"></tr>
+	</table>
+</body>
+
+<script type="text/javascript">
+	function example01() 
+	{
+		let sum= 0;
+		for (var i=1; i<=100; i++)
+		{
+			let condition01= i%2;
+			let condition02= i%5;
+			if(condition01 && condition02)
+				sum+= i;
+		}
+		document.getElementById("ex01").innerText= sum;
+	}
+
+	function example02()
+	{
+		let num1= 0;
+		let num2= 0;
+		do {
+			num1= parseInt(Math.random()*10)+1;
+			num2= parseInt(Math.random()*10)+1;
+		}while(num1 == num2)
+
+		document.getElementById("ex02_r1").innerText= `${num1} /`;
+		document.getElementById("ex02_r2").innerText= ` ${num2}`;
+	}
+
+// 새로운 HTML에서 생성
+	function example03()
+	{
+		const first= parseInt(prompt("단을 입력하세요."));
+		document.write("<table border='1' width='200'>");
+		for(let i=1; i<10; i++) 
+		{
+			document.write(`<tr><td> ${first}*${i}=</td> <td>${first*i}</td></tr>`);
+		}	
+		document.write("</table>");
+	}
+// 기존 HTML에 추가하기
+	function example03_ver02()
+	{
+		// var one= document.getElementById("one");
+		// var td= document.createElement("td");
+		// var text= document.createTextNode('asdf');
+		// td.appendChild(text);
+		// document.body.appendChild(td);
+		
+		const first= parseInt(prompt("단을 입력하세요."));
+		for(let i=1; i<2; i++)
+		{
+			var one= document.getElementById("one");
+			var td= document.createElement("td");
+
+			let str_01= `${first} * ${i}`;
+			let str_02= `${first*i}`;
+			var td_condition= document.createTextNode(str_01);
+			var td_result= document.createTextNode(str_02);
+
+			document.body.appendChild(td_condition);
+			document.body.appendChild(td_result);
+		}
+	}
+</script>
+</html>

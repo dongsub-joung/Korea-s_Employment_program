@@ -10,7 +10,7 @@ header {
 	padding: 0px 0 20px 0;
 }
 section { 
-	width: 45%; 
+	width: 1150px; 
 	padding: 20px 5px 20px 25px;
 	float: left;
 }
@@ -22,17 +22,6 @@ ul li {
 	list-style-type: none;
 	color: inherit;
 }
-#circle1 {
-	background-color: black;
-	width:20px;
-	height:20px;
-	border-radius:75px;
-	text-align:center;
-	margin:0 auto;
-	font-size:12px;
-	vertical-align:middle;
-	line-height:150px;
-}
 
 
 /* header */
@@ -41,9 +30,7 @@ header .logo {
 	margin: 10 0 20 20;
 	padding-left: 15px;
 }
-header .nav {
 
-}
 header .nav .menu {
 	padding-left: 25%;
 	display: inline-block;
@@ -56,77 +43,6 @@ header .nav .menu li a{
 	color: white;
 	text-decoration: none;
 }
-
-
-/* aside */
-aside {
-	float: left;
-	text-align: center;
-	width: 40%; 
-	padding-left: 90px;
-}
-
-aside h4 {
-	font-size: 130%;
-	text-align: left !important;
-}
-aside #month {
-	font-size: 150%;
-}
-.weekd_day_area {
-    width: 100%;
-}
-.weekd_day_area ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-}
-.weekd_day_area li {
-    float: left;
-    display: block;
-    width: 14%;
-    padding: 5px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    margin: 0 0 -1px -1px;
-    font-size: 70%;
-}
-.weekd_day_area ul {
-    height: 40px;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    /*background: #8e352e;*/
-}
-.weekd_day_area ul li {
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 20px;
-    border: none !important;
-    padding: 10px 6px 10px 6px;
-    color: black;
-    font-size: 13px;
-}
-.red_day {
-	color: red !important;
-}
-
-.days_area {
-	margin-left: -35px;
-}
-.days_area li {
-    height: 60px;
-    width: 65px;
-    float: left;
-}
-.days_area li:hover {
-    background: #d3d3d3;
-}
-
-aside .calender {
-	margin-top: -50px;
-}
-
 
 
 /* footer */
@@ -181,14 +97,14 @@ section .list {
 	border: 2px solid lightgray;
 }
 section nav .main_munu {
-	width: 550px;
+	width: inherit;
 	margin: -10px -10px 20px -10px;
 }
 section nav .main_munu li {
 	float: left;
 	margin: -8px 15px 15px -19px;
 	text-align: center;
-	width: 107px;
+	width: 1000px;
 	height: 60px;
 	line-height: 60px;
 	border-left: 1px solid lightgray;
@@ -205,20 +121,32 @@ section nav .main_munu li a:hover{
 	clear: both;
 }
 
-aside .calender #day{
-	background-color: lightblue;
-	width:40px;
-	height:40px;
-	border-radius:75px;
-	text-align:center;
-	margin:0 auto;
-	font-size:12px;
-	vertical-align:middle;
-	line-height:150px;
-	color: black !important;
-	z-index: 1;
+
+/* table */
+table, td, tr {
+	padding: 0;
+	margin: 0;
+}
+table {
+	background-color: white;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+td {
+	border: 0.5px solid gray;
+	width: 300px;
+	text-align: center;
+	padding: 10px 5px 10px 5px;
+}
+td:hover {
+	background-color: #2f3191 !important;
+}
+a {
+	text-decoration: none;
+	font-size: 120%;
+	color: black;
+}
+a:hover {
+	color: white !important;
 }
 
-aside .calender #day span {
-	z-index: 2;
-}

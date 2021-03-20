@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		h1 { padding-top: 30px; }
+		span { font-size: 200%; }
+		table, tr ,td { border: 1px solid black; }
+		td { width: 50px; text-align: center; font-size: 1.1em; }
+	</style>
+</head>
+
+<body>
+	<h1>이미지를 저장하는 배열</h1>
+	<img id="demo" src="img_web20/1.jpg">
+	<input type="button" value="Pre" onclick="pre();">
+	<input type="button" value="next" onclick="next();">
+
+	<h1> 문자열 배열 다루기 </h1>
+</body>
+
+<script type="text/javascript">
+	const ARRAY_MAX= 3;
+	img= new Array(ARRAY_MAX);
+	for(let i=0; i<ARRAY_MAX; i++)
+		{ img[i]= `img_web20/${i+1}.jpg`; }
+
+	let index= 0;
+	function next() {
+		index++;
+		if (index>ARRAY_MAX-1) {
+			index= ARRAY_MAX-1;
+			document.getElementById("demo").src= img[index];
+		} else {
+			document.getElementById("demo").src= img[index];
+		}
+	}
+	function pre() {
+		index--;
+		if (index<0) {
+			index= 0;
+			document.getElementById("demo").src= img[index];
+		} else {
+			document.getElementById("demo").src= img[index];
+		}
+	}
+
+
+	arr_str= ["앵귤러", "리엑트", "제이쿼리"];
+	arr_str02= ["VueJS", "NodeJS", "NestJS", "NextJS"];
+	arr_sum= arr_str.concat(arr_str02);
+
+// arrary.concat
+	// array.join
+	// arrya.slice
+	// array.toString
+	// array.sort
+	// array.reverse
+
+// pop();
+// push(); // 맨 마지막 요소를 추가
+// shift() //첫 요소 제거
+
+</script>	
+</html>

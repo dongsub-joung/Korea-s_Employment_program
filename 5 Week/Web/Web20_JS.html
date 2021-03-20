@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		h1 { padding-top: 30px; }
+		span { font-size: 200%; }
+		table, tr ,td { border: 1px solid black; }
+		td { width: 50px; text-align: center; font-size: 1.1em; }
+	</style>
+</head>
+
+<body>
+	<img src="" >
+</body>
+
+<script type="text/javascript">
+
+
+	document.write(`<h1> Example eval </h1>`);
+	let result= eval(5+10*3-1);
+	document.write(`${result}`);
+
+
+	document.write(`<h1> Example: F -> C</h1>`);
+	document.write(`<input type="button" name="" value="화씨 변환" onclick="Ex02();">`);
+	function Ex02() 
+	{
+		const INPUT= prompt("섭씨 온도");
+		const F= 9.0 / 5.0 * INPUT +32;
+		document.write(`화씨온도는: ${F}`);
+	}
+
+
+	document.write(`<h1> 날짜를 입력하면 초로 환산 출력 </h1>`);
+	document.write(`<input type="button" name="" value="초로 변환" onclick="Ex03();">`);
+	function Ex03()
+	{
+		const INPUT= prompt(`초로 변환할 날짜를 입력`);
+		const OUTPUT= INPUT 
+	}
+
+
+	document.write(`<h1> setTimeout </h1>`);
+	document.write(`<input type="button" name="" value="네이버로 이동" onclick="Ex04();">`);
+	function Ex04()
+	{
+		setTimeout("location.href=`https://www.naver.com/`", 2000);
+	}
+
+
+	document.write(`<h1> setTimeout, clearTimeout </h1>`);
+	document.write(`<input type="button" name="" value="알람 버튼" onclick="f_id();">`);
+	document.write(`<input type="button" name="" value="정지 버튼" onclick="stopCondition();">`);
+	var f_id= () => { setTimeout("alert(`점심시간!`)", 2000); }
+// 취소 안됨..
+	function stopCondition() {
+		clearTimeout(f_id);
+		alert("취소!");
+	}
+
+
+	document.write(`<h1> setInterval(): Gernerate Random number </h1>`);
+	document.write(`<input type="button" name="" value="생성 버튼" onclick="Ex05();">`);
+	function Ex05() {
+		document.write(`<div id="demo"> </div>`);
+		init();
+	}
+ 	let id05=function init() {
+		document.write(`<input type="button" name="" value="정지 버튼" onclick="STOP_EX05();">`);
+		id_05();
+	}
+	let id_05= function() {
+		setInterval(RandomNumber, 1000);
+	}
+	function RandomNumber() {
+		document.getElementById("demo").innerHTML+= 
+			"<br>"+Math.random();
+	}
+	// 1. 함수를 만들어 그대로 대입했을 경우. x
+	// 2. 함수를 변수에 대입해서 그것을 대입했을 경우 x
+	// 3. 람다 함수를 변수로 선언해서 그 변수를 대입 했을 때 x
+	// 4. interver함수를 다른 함수 내에 포함 시켜 상위 함수를 대입했을 경우 x
+	// 5. 기존의 id변수를 초기화하고 그 변수에 함수를 대입시켜서 대입시켰을 경우 x
+	// function stop_05() { clearInterval(id_05) };
+	let STOP_EX05= function(){
+		clearInterval(id_05);	
+	} 
+
+
+	document.write(`<h1> printImg used JS</h1>`);
+	document.write(`<input type="button" name="" value="이미지 생성" onclick="printImg();">`);
+	const getImg= () => {
+		let result= parseInt(Math.random()*3)+1; 
+		return result;
+	}
+	function printImg(){ 
+		for(let i=0; i<3; i++) {
+			let number= getImg();
+			document.write(`<img src="img_web20/${number}.JPG">`);
+		}
+	} 
+
+</script>
+</html>

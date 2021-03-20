@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		h1 { padding-top: 30px; }
+		span { font-size: 200%; }
+		table, tr ,td { border: 1px solid black; }
+		td { width: 50px; text-align: center; font-size: 1.1em; }
+	</style>
+</head>
+
+<body>
+	<input type="button" name="" value="test" onclick="interval();">
+</body>
+
+<script type="text/javascript">
+	let init= function() {
+		setTimeout(fun01, 1000);
+	}
+	function fun01() {
+		document.write("<h1> write </h1>");
+	}
+	function clear() {
+		document.write(`"<input type="button" name="" value="test" onclick="clearInter();">"`);
+	}
+	let interval= function() {
+		setInterval(fun01, 1000);
+		setInterval(clear, 5000);
+	}
+	let clearInter= function() {
+		clearInterval(interval, 5000);
+	}
+	// let timerId = setTimeout(() => alert("아무런 일도 일어나지 않습니다."), 1000);
+	// alert(timerId); // 타이머 식별자
+
+	// clearTimeout(timerId);
+	// alert(timerId); // 위 타이머 식별자와 동일함 (취소 후에도 식별자의 값은 null이 되지 않습니다.)
+</script>	
+</html>

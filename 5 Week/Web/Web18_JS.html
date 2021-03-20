@@ -12,8 +12,23 @@
 	</style>
 </head>
 <body> 
-	<input type="button" value="*-triangle" name="" onclick="printStart();">
+	<div>
+		<h1>누르면 별이 계단식으로 출력</h1>
+		<input type="button" value="*-triangle" name="" onclick="printStart();">
+	</div>
+	
+	
+	<div>
+		<h1><a href="#" onclick="checkPassword();">
+		pw == true ? redirect naver.com : alter</a></h1>
+	</div>
+
+	<div>
+		<h1><a href="#" onclick="printGrade();">성적에 맞는 학점 출력하기</a></h1>
+		<img src="" id="img_grade">
+	</div>
 </body>
+
 <script type="text/javascript">
 	document.write("<h1> Ex1 </h1>");
 	const AGE= 27;
@@ -25,7 +40,6 @@
 	document.write("<br>");
 	document.write(F_NAME);
 
-	document.write("<h1> Ex2 </h1>");
 	// MDN- document.write
     // function newContent() {
     //   alert("load new content");
@@ -34,7 +48,7 @@
     //   document.close();
     // }
 
-    // return String absolute path
+    // return String: absolute path
     let str= document.documentURI;
     console.log(str);
 
@@ -48,6 +62,33 @@
 	    	document.write("<br>");
 	    	star+= "*";
 	    }
+    }
+
+	document.write("<h1> Ex2 </h1>");
+
+    // Check password
+    function checkPassword() {
+    	// alert("1234");
+    	passwd= prompt("암호를 입력하세요.", "");
+    	if (passwd == "1234")
+    		location.href= "http://www.naver.com";
+    	else 
+    		alert("암호가 틀렸습니다.");
+    }
+
+    function printGrade() {
+    	const value= parseInt(prompt("성적을 입력해주세요!"));
+    	if (value>=90) {
+    		document.getElementById("img_grade").src= "img_web18/A.JPG";
+    	} else if (value >= 85) {
+    		document.getElementById("img_grade").src= "img_web18/B.JPG";
+    	} else if (value >= 80) {
+    		document.getElementById("img_grade").src= "img_web18/B.JPG";
+    	} else if (value >= 75) {
+    		document.getElementById("img_grade").src= "img_web18/B.JPG";
+    	} else{
+    		document.getElementById("img_grade").src= "img_web18/B.JPG";
+    	}
     }
 
 </script>
