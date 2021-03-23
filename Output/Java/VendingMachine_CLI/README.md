@@ -16,6 +16,7 @@
 
 - VendingMachineMain class
 
+---  
 
 ## Variable, method
 
@@ -28,8 +29,9 @@
 - private final int blueb= 4500  
 
 **Method**
-- Getter
+- Getter  
 
+---  
 ### VendingMachine  
 
 **Class variable**  
@@ -41,7 +43,8 @@
 - public void addCoin(int calculated)
 - public void buy(int g_price)
 
-### public VendingMachineMain
+---  
+### public VendingMachineMain  
 
 **Class variable**  
 - private static int g_selected_menu= 0  
@@ -57,9 +60,9 @@ private static void setSelectedMenu(int number)
 public static void setG_coin(int coin)  
 private static void printPresentCoin()  
 
-**progress control method: public static void main(String[] args)**
-private static void responseQuestion(int kind)
-private static void startVending()
-private static void selectMenu()
-private static void paidPrice()
-private static void accounting()
+**progress control method: public static void main(String[] args)**  
+private static void responseQuestion(int kind)  
+private static void startVending()  
+private static void selectMenu()  
+private static void paidPrice()  
+private static void accounting()  
