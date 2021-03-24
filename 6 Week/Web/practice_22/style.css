@@ -1,0 +1,64 @@
+body { 
+	width: 1200px; 
+	background-color: #654321;
+}
+main .control { 
+	text-align: center;
+}
+.number {
+	text-align: center; 
+	font-size: 1.4em;
+	margin: 20px;
+}
+.number span {
+	color: white;
+	cursor: pointer;
+	padding: 20px;
+}
+.btn {
+	text-align: center;
+}
+
+footer {
+	width: inherit;
+	height: 50px;
+	background-color: black;
+	padding: 10px 0 5px 20px;
+	font-size: 1.1em;
+	bottom: 20px;
+	position: absolute;
+}
+a {
+	color: white;
+	text-decoration: none;
+}
+main {
+	text-align: center;
+}
+input {
+	padding: 10px;
+	margin: 20px;
+	background-color: white;
+	color: black;
+}
+div.imageside {
+	position: relative;
+}
+
+/* 양쪽 화살표 */
+a.prev, a.next {
+	position: absolute;
+	top: 40%;
+	padding: 20px;color: #111111;
+	background-color: #efefef;
+	margin: -20px;
+	border-radius: 0 3px 3px 0;
+}
+a.prev {
+	left: 10px;
+	border-radius: 3px 0 0 3px;
+}
+a.next {
+	right: 10px;
+	border-radius: 3px 0 0 3px;
+}

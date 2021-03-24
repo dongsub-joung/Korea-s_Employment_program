@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		body { 
+			width: 1200px; 
+		}
+		div.ex01{
+			border: 1px solid green;
+			width: 400px;
+			height: 300px;
+		}
+		form.ex02, .ex03 {
+			width: 400px;
+			height: 100px;
+			border: 1px solid green;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Mouse Event</h1>
+	<div class="ex01" onmouseover="changeImg();" onmouseover="changeImg();">
+		<img class="demo" src="images/bird.gif" alt="bird">
+	</div>
+
+	<h1>Check Login</h1>
+	<form class="ex02">
+		<input id="user_id" type="text" placeholder="ID"> <br>
+		<input id="user_pw" type="text" placeholder="PW">
+		<input type="button" value="login" onclick="checkLogin();">
+	</form>
+
+	<h1>Check random code</h1>
+	<div id="ex03">x
+		<span id="code"></span> <br>
+		<input id="code_input" type="text" value=""> <br>
+		<input type="button" value="Check" onclick="checkCode();">
+	</div>
+
+	<h1>Join</h1>
+	<div class="ex02_02">
+		<input type="text" id="ID02" placeholder="ID"><br>
+		<input type="text" id="email" placeholder="email"><br>
+		<input type="password" id="PW02" placeholder="PW"><br>
+		<input type="password" id="check_pw" placeholder="Check PW">
+		<button onclick="join();">Join</button>
+	</div>
+</body>
+
+<script defer src="script.js"></script>	
+</html>
