@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		h1 { padding-top: 30px; }
+		span { font-size: 200%; }
+		table, tr ,td { border: 1px solid black; }
+		td { width: 50px; text-align: center; font-size: 1.1em; }
+	</style>
+</head>
+
+<body>
+	<h1> HTML 변경하기</h1>
+	<input type="button" name="" value="start" onclick="append();">
+	<div id="box">
+	</div>
+</body>
+
+<script type="text/javascript">
+	function append() {
+		var p_tag= document.createElement("p");
+		p_tag.innerText= "추가내용";
+		var praent_tag= document.getElementById("box");
+		praent_tag.appendChild(p_tag);
+	}
+</script>	
+</html>

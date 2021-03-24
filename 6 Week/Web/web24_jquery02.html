@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		#box {
+			width: 100px;
+			height: 100px;
+			background: green;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Ex02: fadeOut</h1>
+	<div id="box"></div> <br>
+	<button id="e02">누르면 사라짐</button>
+
+	<h2 id="str03">Ex03: 헬로우 자바스크립트</h2>
+
+	<h1>Ex04: for</h1>
+	<p id="#p04"></p>
+	<button id="btn04">누르면 텍스트 생성</button>
+
+	<h1>Ex05: 경고창 생성 </h1>
+	<button id="b05">누르면..</button>
+</body>
+
+<script src="https://code.jquery.com/jquery-1.8.0.js"></script>
+<script>
+	$(document).ready(function(){
+		// ex01
+		alert("query-1.8.0.js");
+
+		// ex02
+		$("#e02").click(function() {
+			$("div#box").fadeOut(1500);
+		});
+
+		// ex03
+		$("#str03").text("헬로우 제이쿼리");
+
+		// ex04
+		$("button#btn04").click(function() {
+			for (var i = 0; i <5; i++) {
+				$("#p04").text("Hello Text");
+			}
+		});
+		
+
+		// ex05
+		$("button#b05").click(function() {
+			alert("Wellcom to jquery");
+		});
+	});
+</script>	
+</html>

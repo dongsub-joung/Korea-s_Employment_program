@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		body { 
+			width: 1200px; 
+			background-color: #654321;
+		}
+		main .control { text-align: center; }
+		footer {
+			width: inherit;
+			height: 50px;
+			position: absolute;
+			bottom: 40px;
+			background-color: black;
+			padding: 10px 0 5px 20px;
+			font-size: 1.1em;
+
+		}
+		a {
+			color: white;
+			text-decoration: none;
+		}
+		main {
+			text-align: center;
+		}
+		input {
+			padding: 10px;
+			margin: 20px;
+			background-color: white;
+			color: #ffffff;
+			position: absolute;
+		}
+		div.imageside {
+			position: relative;
+		}
+		a.prev, a.next {
+			position: absolute;
+			top: 50%;
+			padding: 20px;color: #111111;
+			background-color: #efefef;
+			margin: -20px;
+			border-radius: 0 3px 3px 0;
+		}
+		a.next {
+			right: 0;
+			border-radius: 3px 0 0 3px;
+		}
+		
+	</style>
+</head>
+
+<body>
+	<header>
+		<img src="img22/title.png">
+	</header>
+
+	<main>
+		<div class="imageside">
+			<img id="img2" src="img22/web22_1.jpg">
+		</div>
+		
+		<a href="" class="prev">&#10094;</a>
+		<a href="" class="next">&#10095;</a>
+	</main>
+
+	<div class="control">
+		<p>
+			<span onclick="currentSlide(0)">1</span>
+			<span onclick="currentSlide(1)">2</span>
+			<span onclick="currentSlide(2)">3</span>
+		</p>
+		<input type="button" name="" value=" < " onclick="pre();">
+		<input type="button" name="" value=" > " onclick="next();">
+	</div>
+	
+	<footer>
+		<a href="#">ASDFASDF@ZXCVW.email.com</a>
+	</footer>
+</body>
+
+<script defer src="Script22.js"> </script>	
+</html>
