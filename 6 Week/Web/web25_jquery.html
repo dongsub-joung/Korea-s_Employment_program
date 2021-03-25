@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		body { 
+			width: 1200px; 
+		}
+		div.ex01{
+			border: 1px solid green;
+			width: 400px;
+			height: 300px;
+		}
+		form.ex02, .ex03 {
+			width: 400px;
+			height: 100px;
+			border: 1px solid green;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Selector</h1>
+	<h4></h4>
+	<p class="lib"></p>
+	<div id="test"></div> <br>
+
+	<h1>Selector: Comment</h1>
+	<p><input id="id" type="text"></p>
+	<p><input id="pw" type="text"></p><br>
+
+	<h1>EX: Fiter selector</h1>
+	<select>
+		<!-- JS로 가져오면 option은 배열 -->
+		<option>Boots</option>
+		<option selected="selected">Clothes</option>
+		<option>Adornment</option>
+		<option>ETC</option>
+	</select> <button id="btn03">Select</button>
+	<h2>JS</h2>
+	<select id="sel0302">
+		<!-- JS로 가져오면 option은 배열 -->
+		<option>CAP</option>
+		<option>T-SHORT</option>
+		<option>INNTER</option>
+		<option selected="selected">OUTER</option>
+	</select> <button id="btn0302" onclick="select0302();">Select</button>
+</body>
+
+<script src="../../jquery-3.6.0.min.js"></script>
+<script>
+	
+// EX01
+	$(()=>{
+		$("h4").text("html tag 접근");
+		$("h4").css("border", "2px solid black");
+
+		$("p.lib").texts("클래스 접근"); 
+		$("p.lib").css("font-size", "2.0em"); 
+
+		$("#test").text("아이디 접근");
+		$("#test").css("color", "red");
+	});
+
+// EX02
+	$(()=>{
+		$("#id").attr("placeholder", "  ID");
+		$("#pw").attr("placeholder", "  PW");
+		$("input[type='text']").css("color", "green");
+		$("input[type='text']").css("font-size", "1.5em");
+	});
+
+// EX03
+	$(()=>{
+		$("#btn03").click(() => {
+			// vlaue tag
+			let sel= $("select>option:selected").val();
+			alert(sel);
+		});
+	});
+	// let t_sel0302= document.getElementById("sel0302");
+	// function select0302() {
+	// 	for (var i = 0; i < option.length; i++) {
+	// 		if (option[i] == selected) { alert(selected); }
+	// 	}
+	// }
+
+// EX04
+	
+
+</script>
+</html>
