@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		body {
+			background-color: #222222;
+			font-family: `Orbitron` ,sans-serif;
+		}
+		h3 {
+			color: #66ff99;
+		}
+		#today, #clock, .warp {
+			color: #66ff99;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			font-size: 30px;
+			text-align: center;
+		}
+		table {
+			border: 1px solid #66ff99;
+			text-align: center;
+			width: 50%;
+		}
+	</style>
+</head>
+
+<body>
+	<h3>자바스크립트 날짜 & 시간</h3>
+	<div id="today"></div>
+	<div id="clock"></div>
+
+	<div class="warp">
+		<table id="calendar">
+			<tr></tr>
+				<td class="sun">일</td>
+				<td>월</td>
+				<td>화</td>
+				<td>수</td>
+				<td>목</td>
+				<td>금</td>
+				<td class="sat">토</td>
+			<tr></tr>
+		</table>
+	</div>
+</body>
+
+<script src="../../../jquery-3.6.0.min.js"></script>
+<script>
+
+	// Create Date Obj
+	let today= new Date();
+	let lastDate= new Date(today.getFullYear(), today.getMonth()+1, 0);
+	function curentTime() 
+	{
+		let date= new Date();
+		let year= date.getFullYear();
+		let month= date.getMonth()+1;
+		let day= date.getDate();
+		document.getElementById("today").innterText= `${year} ${month} ${day}`;
+
+		let hour= date.getHours();
+		let min= date.getMinutes();
+		let sec= date.getSeconds();
+		let midday= "AM";
+		midday= (hour>=12) ? "PM" : "AM";
+		hour= (hour>12) ? hour-12 : hour;
+
+		hour= updateTime(hour);
+		min= updateTime(min);
+		sec= updateTime(sec);
+		document.getElementById("clock").innterText= `${hour} : ${min} : ${sec}`;
+	}
+
+	function updateTime(num)
+	{
+		if (num<10) { return `${0}num`; }
+		else {return num;}
+	}
+
+	// init setInterval
+	id= setInterval("curentTime();", 1000);
+
+	function addRow() 
+	{
+		let lastDay= lastDate.getDate();
+		let weekDay= lastDate.getDay();
+
+
+		let tbl= document.getElementById("calendar");
+
+		let newRow= tbl.insertRow();
+		// i
+		for (var d = 1; d <= 7; d++) {
+			let newCell= newRow.insertCell();
+			newCell.innterText= d;
+			if (d%7==0) {
+				newRow= tbl.insertRow();
+				newCell.innterHTML= "span class=`sat`>" +d+"</span>";
+			}
+			if (d%7==1) {
+				newRow= tbl.insertRow();
+				newCell.innterHTML= "span class=`sun`>" +d+"</span>";
+			}
+		}
+	}
+	// addRow();
+</script>
+</html>

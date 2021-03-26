@@ -74,7 +74,7 @@ class Visualization
     }
 }
 
-public class java26 extends Visualization {
+public class java25 extends Visualization {
 
     public final static void clearConsole()
     {
