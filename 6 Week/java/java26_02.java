@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -12,11 +13,11 @@ class FoodSelf
         this.price = price;
     }
 
-//    Setter
+    //    Setter
     public void setName(String name) { this.name = name; }
     public void setPrice(int price) {  this.price = price; }
 
-//    Getter
+    //    Getter
     public int getPrice() { return price; }
     public String getName() { return name; }
 }
@@ -29,9 +30,15 @@ class BurgerSelf extends FoodSelf
     BurgerSelf(boolean isSet, String name, int price)
     {
         super(name, price);
-        if (isSet) setName(name+" Set");
         this.isSet= isSet;
+        if (isSet) setPrice(price+3000);
+//        if (isSet) setName(name);
     }
+
+    public boolean isSet() {
+        return isSet;
+    }
+
 }
 
 class MENU_STRINGS
@@ -50,6 +57,15 @@ class MENU_STRINGS
 
     public static String[] getSideMenu() {
         return SIDE_MENU;
+    }
+    public static int getIndex(String[] str_arr, String str)
+    {
+        int index= 0;
+        for (int i = 0; i < str_arr.length; i++)
+        {
+            if (str_arr[i].equals(str)) index= i;
+        }
+        return index;
     }
 }
 class Price
@@ -75,7 +91,7 @@ class Price
     private Drink D;
     private Side S;
 
-//    Singleton
+    //    Singleton
     protected Price(){}
     private static class InnerInstanceClazz{
         private static final Price instance= new Price();
@@ -84,28 +100,40 @@ class Price
 
 //    Getter
 
-//    Main
+
+    //    Main
     protected int getMain(String str) {
         String[] menu= strs_menu.getMainMenu();
-        if (str == menu[0]) return M.big_mac;
+        int index= strs_menu.getIndex(menu, str);
+        if (menu[index].equals(str)) return M.big_mac;
 //        else if (str == menu[i]) return M.something;
-        else return -1;
+        else
+        {
+//            System.out.println("E: Incorrect String");
+            return 0;
+        }
     }
 
-//    Drink
+    //    Drink
     protected int getDrink(String str) {
         String[] menu= strs_menu.getDRINK();
-        if (str == menu[0]) return D.coka_cola;
+        if (menu[0].equals(str)) return D.coka_cola;
 //        else if (str == menu[i]) return D.something;
-        else return -1;
+        else {
+//            System.out.println("E: Incorrect String");
+            return 0;
+        }
     }
 
-//    Side
+    //    Side
     protected int getSide(String str) {
         String[] menu= strs_menu.getSideMenu();
-        if (str == menu[0]) return S.sake_ice_cream;
+        if (menu[0].equals(str)) return S.sake_ice_cream;
 //        else if (str == menu[i]) return S.something;
-        else return -1;
+        else {
+//            System.out.println("E: Incorrect String");
+            return 0;
+        }
     }
 }
 class Separate extends Price
@@ -123,24 +151,23 @@ class Separate extends Price
         switch (str.charAt(0))
         {
             case 'M':
-                return getMain(str);
+                return getMain(str.substring(2));
             case 'D':
-                return getDrink(str);
+                return getDrink(str.substring(2));
             case 'S':
-                return getSide(str);
+                return getSide(str.substring(2));
+            default:
+                return 0;
         }
-        return -1;
     }
 }
 
 
 public class java26_02 {
-    Price p;
-
-    public static boolean checkSet(int set)
+    public static boolean checkSet(String set)
     {
-        if (set == 1) {  return true; }
-        else if (set == 2) { return false; }
+        if (set.charAt(0) == '1') {  return true; }
+        else if (set.charAt(0) == '2') { return false; }
         else { return false; }
     }
 
@@ -158,8 +185,7 @@ public class java26_02 {
         System.out.printf("]\n");
         String s_main_menu= "M " + sc.nextLine();
         System.out.println("Upgrade set? (YES 1, NO 2)");
-//        isSet= checkSet(sc.nextInt());
-        isSet=true;
+        isSet= checkSet(sc.nextLine());
 
 //        Drink
         System.out.printf("Order: Drink  ");
@@ -175,18 +201,33 @@ public class java26_02 {
         System.out.printf("]\n");
         String s_side_menu= "S " + sc.nextLine();
 
+//        Init
         BurgerSelf burger= new BurgerSelf(isSet, s_main_menu, separate.getMain(s_main_menu));
         FoodSelf drink= new FoodSelf(s_drink, separate.getDrink(s_drink));
         FoodSelf side= new FoodSelf(s_side_menu, separate.getSide(s_side_menu));
 
+//        Save
         Vector<Object> order_A= new Vector<>();
         order_A.add(burger); order_A.add(drink); order_A.add(side);
         BurgerSelf a_main= (BurgerSelf) order_A.get(0);
-        FoodSelf a_side= (FoodSelf) order_A.get(1);
-        FoodSelf a_drink= (FoodSelf) order_A.get(2);
+        FoodSelf a_drink= (FoodSelf) order_A.get(1);
+        FoodSelf a_side= (FoodSelf) order_A.get(2);
+
+//        Output
+        String print_main_menu= a_main.getName();
+        String print_drink= a_drink.getName();
+        String print_side_menu= a_side.getName();
+        int price_main= separate.initSeparate(print_main_menu);
+        int price_drink= separate.initSeparate(print_drink);
+        int price_side= separate.initSeparate(print_side_menu);
+
         System.out.println("========= Order A =========");
-        System.out.printf("Burger: %s\n", a_main.getName().substring(2));
-        System.out.printf("Drink:  %s\n", a_drink.getName().substring(2));
-        System.out.printf("Side:   %s\n", a_side.getName().substring(2));
+        if (a_main.isSet()) { print_main_menu+= " Set"; }
+        System.out.printf("Burger: %s\n", print_main_menu.substring(2));
+        System.out.printf("Drink:  %s\n", print_drink.substring(2));
+        System.out.printf("Side:   %s\n", print_side_menu.substring(2));
+        System.out.println("===========================");
+        System.out.printf("/ %d / %d / %d /\n", price_main, price_drink, price_side);
+        System.out.printf("Amount: %d", price_main+price_drink+price_side);
     }
 }
