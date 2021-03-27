@@ -54,7 +54,7 @@
 	// Create Date Obj
 	let today= new Date();
 	let lastDate= new Date(today.getFullYear(), today.getMonth()+1, 0);
-	function curentTime() 
+	function curentTime()
 	{
 		let date= new Date();
 		let year= date.getFullYear();
@@ -65,9 +65,9 @@
 		let hour= date.getHours();
 		let min= date.getMinutes();
 		let sec= date.getSeconds();
-		let midday= "AM";
-		midday= (hour>=12) ? "PM" : "AM";
-		hour= (hour>12) ? hour-12 : hour;
+		// let midday= "AM";
+		// midday= (hour>=12) ? "PM" : "AM";
+		// hour= (hour>12) ? hour-12 : hour;
 
 		hour= updateTime(hour);
 		min= updateTime(min);
@@ -78,13 +78,13 @@
 	function updateTime(num)
 	{
 		if (num<10) { return `${0}num`; }
-		else {return num;}
+		else { return num; }
 	}
 
 	// init setInterval
 	id= setInterval("curentTime();", 1000);
 
-	function addRow() 
+	function addRow()
 	{
 		let lastDay= lastDate.getDate();
 		let weekDay= lastDate.getDay();
