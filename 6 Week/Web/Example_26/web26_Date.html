@@ -6,44 +6,66 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>		
 	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Orbitron');
 		body {
 			background-color: #222222;
-			font-family: `Orbitron` ,sans-serif;
+			font-family: 'Orbitron', sans-serif;
 		}
+		
 		h3 {
 			color: #66ff99;
 		}
-		#today, #clock, .warp {
+		
+		#today, #clock {
 			color: #66ff99;
 			padding-top: 20px;
 			padding-bottom: 20px;
 			font-size: 30px;
 			text-align: center;
 		}
+		
+		#wrap {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		
 		table {
 			border: 1px solid #66ff99;
 			text-align: center;
-			width: 50%;
+			width: 70%;
+			margin: 0 auto;
+		}
+		td {
+			color: #66ff99; 
+			/* border: 1px solid #66ff99; */
+		}
+		span.sun {
+			color: #ff0000;
+		}
+		span.sat {
+			color: #1111cc;
 		}
 	</style>
 </head>
 
 <body>
-	<h3>자바스크립트 날짜 & 시간</h3>
+	<h3>자바스크립트 날짜&시간</h3>
+	
 	<div id="today"></div>
+	
 	<div id="clock"></div>
-
-	<div class="warp">
+	
+	<div id="wrap">
 		<table id="calendar">
-			<tr></tr>
-				<td class="sun">일</td>
-				<td>월</td>
-				<td>화</td>
-				<td>수</td>
-				<td>목</td>
-				<td>금</td>
-				<td class="sat">토</td>
-			<tr></tr>
+			<tr>
+			<td><span class="sun">일</span></td>
+			<td>월</td>
+			<td>화</td>
+			<td>수</td>
+			<td>목</td>
+			<td>금</td>
+			<td><span class="sat">토</span></td>
+			</tr>
 		</table>
 	</div>
 </body>
@@ -53,60 +75,89 @@
 
 	// Create Date Obj
 	let today= new Date();
-	let lastDate= new Date(today.getFullYear(), today.getMonth()+1, 0);
+	let lastDate= "";
+	// new Date(today.getFullYear(), today.getMonth()+1, 0);
+
 	function curentTime()
 	{
 		let date= new Date();
+
 		let year= date.getFullYear();
 		let month= date.getMonth()+1;
 		let day= date.getDate();
-		document.getElementById("today").innterText= `${year} ${month} ${day}`;
+		document.getElementById("today").innerText= `${year} ${month} ${day}`;
+		// 
 
 		let hour= date.getHours();
 		let min= date.getMinutes();
 		let sec= date.getSeconds();
-		// let midday= "AM";
-		// midday= (hour>=12) ? "PM" : "AM";
-		// hour= (hour>12) ? hour-12 : hour;
+		let midday= "AM";
+		midday= (hour>=12) ? "PM"    : "AM";
+		hour=   (hour>12)  ? hour-12 : hour;
 
 		hour= updateTime(hour);
 		min= updateTime(min);
 		sec= updateTime(sec);
-		document.getElementById("clock").innterText= `${hour} : ${min} : ${sec}`;
+
+		document.getElementById("clock").innerText= `${hour} : ${min} : ${sec} ${midday}`;
 	}
 
 	function updateTime(num)
 	{
-		if (num<10) { return `${0}num`; }
-		else { return num; }
+		if (num<10) { num= "0"+ num; }
+		else { num= num; }
+		return num;
 	}
 
 	// init setInterval
 	id= setInterval("curentTime();", 1000);
 
-	function addRow()
-	{
-		let lastDay= lastDate.getDate();
-		let weekDay= lastDate.getDay();
-
-
-		let tbl= document.getElementById("calendar");
-
-		let newRow= tbl.insertRow();
-		// i
-		for (var d = 1; d <= 7; d++) {
-			let newCell= newRow.insertCell();
-			newCell.innterText= d;
-			if (d%7==0) {
-				newRow= tbl.insertRow();
-				newCell.innterHTML= "span class=`sat`>" +d+"</span>";
+	function addRow() {
+		
+		//현재 달의 처음날짜계산 마지막 날짜 전체계산
+		var lastDate = new Date(today.getFullYear(), today.getMonth()+1, 0);
+		var startDate = new Date(today.getFullYear(), today.getMonth(), 1);
+		
+		//현재 달의 처음일, 마지막일
+		var startDay = startDate.getDate();
+		var lastDay = lastDate.getDate(); // 현재달의 마지막 날짜
+		//요일
+		var weekStartDay = startDate.getDay();
+		var weekLastDay = lastDate.getDay();  // 현재달의 31일의 수요일
+		
+		// 0:일, 1:월, 2:화, 3:수, 4:목, 5:금, 6:토
+		// 왜 필요한가? 날짜 찍을 때 시작요일이 필요하기 때문에
+		
+		var tbl = document.getElementById("calendar");
+		
+		//반복문을 돌리기 전에 1개의 행을 추가
+		var newRow = tbl.insertRow();
+		
+		var cnt = 0;
+		var newCell = null;
+		for(n=0; n<weekStartDay; n++) {
+			newCell = newRow.insertCell();
+			cnt++;
+		}
+		
+		for(d=1; d<=lastDay; d++) {
+			 
+			newCell = newRow.insertCell();
+			newCell.innerHTML = d;
+			cnt++;
+			
+			if(cnt%7==0) {
+				// 7개 열 추가 후 다음 행 추가
+				newRow = tbl.insertRow();
+				newCell.innerHTML = "<span class='sat'>"+d+"<span>";
 			}
-			if (d%7==1) {
-				newRow= tbl.insertRow();
-				newCell.innterHTML= "span class=`sun`>" +d+"</span>";
+			if(cnt%7==1) {
+				newCell.innerHTML = "<span class='sun'>"+d+"<span>";
 			}
+			
 		}
 	}
-	// addRow();
+	
+	addRow();
 </script>
 </html>

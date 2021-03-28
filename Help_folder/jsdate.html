@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jspweb0_</title>
+<link rel="stylesheet" href="css/style.css"></link>
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Orbitron');
+	body {
+		background-color: #222222;
+		font-family: 'Orbitron', sans-serif;
+	}
+	
+	h3 {
+		color: #66ff99;
+	}
+	
+	#today, #clock {
+		color: #66ff99;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		font-size: 30px;
+		text-align: center;
+	}
+	
+	#wrap {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	
+	table {
+		border: 1px solid #66ff99;
+		text-align: center;
+		width: 70%;
+		margin: 0 auto;
+	}
+	td {
+		color: #66ff99; 
+		/* border: 1px solid #66ff99; */
+	}
+	span.sun {
+		color: #ff0000;
+	}
+	span.sat {
+		color: #1111cc;
+	}
+</style>
+</head>
+<body>
+	<h3>자바스크립트 날짜&시간</h3>
+	
+	<div id="today"></div>
+	
+	<div id="clock"></div>
+	
+	<div id="wrap">
+		<table id="calendar">
+			<tr>
+			<td><span class="sun">일</span></td>
+			<td>월</td>
+			<td>화</td>
+			<td>수</td>
+			<td>목</td>
+			<td>금</td>
+			<td><span class="sat">토</span></td>
+			</tr>
+		</table>
+	</div>
+	
+	<!-- <input type="button" value="행추가테스트" onclick="addRow();">
+	<input type="button" value="행삭제테스트" onclick="delRow();"> -->
+
+<script>
+	// 자바스크립트 날짜&시간 처리할 때 사용 객체 Date <=> Calendar (자바)
+	var lastDate = "";
+	var today = new Date();
+	
+	function currentTime() {
+		
+		var date = new Date(); // 날짜 객체로 생성
+		
+		var year = date.getFullYear();
+		var month = date.getMonth()+1;	// 달은 0부터 시작됨
+		var day = date.getDate();
+		document.getElementById("today").innerText = year +"년 " + month+"월 " + day + "일";	
+		
+		var hour = date.getHours();		// 1~24시
+		var min = date.getMinutes();
+		var sec = date.getSeconds();
+		var midday = "AM";
+		midday = (hour>=12) ? "PM" : "AM";
+		hour = (hour > 12) ? hour-12 : hour;
+		
+		hour = updateTime(hour);
+		min = updateTime(min);
+		sec = updateTime(sec);
+		
+		document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + " " +midday;
+	}
+
+	
+	// 코드중복이 되서 함수로 정의해서 사용하면 좋음
+	function updateTime(k) {
+		if(k<10) {
+			k="0"+k;
+		}else{
+			k = k;
+		}
+		return k;
+	}
+	id = setInterval("currentTime()",1000);
+	
+	function addRow() {
+		
+		//현재 달의 처음날짜계산 마지막 날짜 전체계산
+		var lastDate = new Date(today.getFullYear(), today.getMonth()+1, 0);
+		var startDate = new Date(today.getFullYear(), today.getMonth(), 1);
+		
+		//현재 달의 처음일, 마지막일
+		var startDay = startDate.getDate();
+		var lastDay = lastDate.getDate(); // 현재달의 마지막 날짜
+		//요일
+		var weekStartDay = startDate.getDay();
+		var weekLastDay = lastDate.getDay();  // 현재달의 31일의 수요일
+		
+		alert(weekStartDay+","+weekLastDay);
+		// 0:일, 1:월, 2:화, 3:수, 4:목, 5:금, 6:토
+		// 왜 필요한가? 날짜 찍을 때 시작요일이 필요하기 때문에
+		
+		var tbl = document.getElementById("calendar");
+		
+		//반복문을 돌리기 전에 1개의 행을 추가
+		var newRow = tbl.insertRow();
+		
+		var cnt = 0;
+		var newCell = null;
+		for(n=0; n<weekStartDay; n++) {
+			newCell = newRow.insertCell();
+			cnt++;
+		}
+		
+		for(d=1; d<=lastDay; d++) {
+			 
+			newCell = newRow.insertCell();
+			newCell.innerHTML = d;
+			cnt++;
+			
+			if(cnt%7==0) {
+				// 7개 열 추가 후 다음 행 추가
+				newRow = tbl.insertRow();
+				newCell.innerHTML = "<span class='sat'>"+d+"<span>";
+			}
+			if(cnt%7==1) {
+				newCell.innerHTML = "<span class='sun'>"+d+"<span>";
+			}
+			
+		}
+	}
+	
+	addRow();
+	
+	function delRow() {
+		var tbl = document.getElementById("calendar");		
+		tbl.deleteRow(-1);  // 0입력 앞쪽 삭제 -1입력 뒤쪽부터 삭제
+	}
+</script>
+</body>
+</html>
