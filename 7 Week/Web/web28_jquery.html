@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		.bgblue {
+			background-color: lightblue;
+		}
+		.bgyellow {
+			background-color: lightyellow;
+		}
+		.gbgreen {
+			background-color: lightgreen;
+		}
+		.gborange{
+			background-color: orange;
+		}
+		.indexSet {
+			border: 2px solid black;
+		}
+	</style>
+</head>
+
+<body>
+	<h1> Select-Select</h1>
+	<select id="mainCate">
+		<option selected="selected" value="1"> ALL </option>
+		<option value="2">스포츠</option>
+		<option value="3">게임</option>
+	</select>
+
+	<select id="subCate">
+		<option> ALL </option>
+	</select>
+
+	<h1>AddCSS</h1>
+	<p>헬로우 제이쿼리1</p>
+	<p>헬로우 제이쿼리2</p>
+	<p>헬로우 제이쿼리3</p>
+	<p>헬로우 제이쿼리4</p>
+	<p>헬로우 제이쿼리5</p>
+	<p>헬로우 제이쿼리6</p>
+	<p>헬로우 제이쿼리7</p>
+	<p>헬로우 제이쿼리8</p>
+	<div>
+		<input id="btn1" type="button" value="파란색"> &nbsp;
+		<input id="btn2" type="button" value="노란색"> &nbsp; <br>
+		<input id="btn3" type="button" value="홀수만"> &nbsp; 
+		<input id="Clear" type="button" value="Clear"> &nbsp; <br>
+		
+		<input id="btnUP" type="button" value="index 증가"> &nbsp;
+		<input id="btnDown" type="button" value="index 감소"> &nbsp;
+		<input id="btn4" type="button" value="green"> &nbsp;
+	</div>
+
+</body>
+
+<script def src="../../jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+	function selectMain() 
+	{
+		mainval= $("#mainCate > option:selected").val();
+		initdat= "<option value=''> 전체 </option>";
+		switch(mainVal) 
+		{
+			case '1':
+				curdate= initdat;
+				curdate+= "<option value= 'm'> 밥 </option>";
+				curdate+= "<option value= 's'> 찌개 </option>";
+				$("select#subCate").html(curdate);
+				break;
+			case '2':
+				curdate= initdat;
+				curdate+= "<option value= 'bb'> 야구 </option>";
+				curdate+= "<option value= 'fb'> 축구 </option>";
+				$("select#subCate").html(curdate);
+				break;
+			default:
+				break;	
+		}
+	}
+	// selectMain();
+
+index= 0;
+	$(()=>{
+		$("#btn1").click(()=>{
+			$("p").each(function(){
+				$(this).removeClass("bgyellow");
+				$(this).addClass("bgblue");
+			});
+		});
+		$("input#btn2").click(()=>{
+			$("p").each(function(){
+				$(this).addClass("bgyellow");
+			});
+		});
+		$("input#btn3").click(()=>{
+			$("p").filter(function(index)
+			{
+				if (index%2 == 0) { $("p").eq(index).addClass("gborange"); }
+			});
+		});	
+		len= $("p").length;
+		$("input#btnUP").click(()=>{
+			$("p").eq(index).removeClass("indexSet");
+			index++;
+			if (index>=len) { index= 0; }
+		});	
+		$("input#btnDown").click(()=>{
+			$("p").eq(index).removeClass("indexSet");
+			index--;
+			if (index<0) {index=len-1;}
+		});	
+
+		$("input#btn4").click(()=>{
+			// if ($("p").eq(index).attr('.gbgreen') {}
+			// $(".gbgreen").eq(index).removeClass("gbgreen");
+			$("p").filter(function(){
+				$("p").eq(index).addClass("gbgreen");
+			});
+		});	
+		$("input#Clear").click(()=>{
+			$("p").filter(function(){
+				$(this).removeClass("bgblue");
+				$(this).removeClass("bgyellow");
+				$(this).removeClass("gbgreen");
+				$(this).removeClass("gborange");	
+			});
+		});	
+	});
+	index_bordering= function(){
+			$("p").eq(index).addClass("indexSet");
+		}
+	setInterval(index_bordering, 1);
+
+</script>
+</script>	
+</html>

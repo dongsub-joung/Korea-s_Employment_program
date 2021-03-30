@@ -1,0 +1,93 @@
+body { 
+	width: 960px; color: gray;
+}
+
+.prev { 
+	float: left;
+	left: 10px; 
+}
+.years { 
+	text-align: center;
+	font-size: 3.0em;
+	color: lightgray;
+	float: left;
+	padding-left: 350px;
+}
+.next {
+	float: right;
+	right: 10px;
+ }
+.prev, .next { 
+	font-size: 2.5em;
+	text-decoration: none; 
+	color: black; }
+
+content { clear: both; }
+
+
+
+/* Calender */
+aside {
+	float: left;
+	text-align: center;
+	width: 960px; 
+}
+div .calender, div .weekd_day_area,{
+	width: inherit;
+}
+li {
+	list-style-type: none;
+}
+aside h4 {
+	font-size: 130%;
+	text-align: left !important;
+}
+aside #month {
+	font-size: 150%;
+}
+
+/* Main header */
+.weekd_day_area ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 40px;
+    border: 2px solid gray;
+}
+.weekd_day_area li {
+    float: left;
+    display: block;
+    width: 14%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin: 0 0 -1px -1px;
+    font-size: 70%;
+}
+.weekd_day_area ul li {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 20px;
+    border: none !important;
+    padding: 10px 6px 10px 6px;
+    color: black;
+    font-size: 13px;
+}
+
+#calendar {
+	width: 960px;
+	border-collapse: collapse;
+}
+#calendar tr {
+	height: 120px;
+}
+#calendar td {
+	border: 2px solid gray;
+	/*valign=top;*/
+	vertical-align: top;
+	text-align: left;
+}
+.prev, .next {
+	cursor: pointer;
+}

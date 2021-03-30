@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<link rel="stylesheet" type="text/css" href="CSS/index.css">
+</head>
+
+<body>
+
+	<header>
+		<img id="header_img" src="image/4_winter.jpg" style="width: 960px;">
+	</header>
+
+	<content>
+
+		<header>
+			<span onclick="pre();" class="prev">&#10094;</span>
+			<div class="years" id="year"></div>
+			<span onclick="next();" class="next">&#10095;</span>
+		</header>	
+
+		<aside>
+			<div clas="calender">
+				<div class="weekd_day_area">
+		            <ul>
+		                <li class="red_day"> Sun </li>
+		                <li>Mon</li>
+		                <li>Tue</li>
+		                <li>Wed</li>
+		                <li>Thu</li>
+		                <li>Fri</li>
+		                <li class="red_day"> Sat</li>
+		            </ul>
+		        </div>
+
+		        <table id="calendar">
+					<!-- Add JS -->
+				</table>
+			</div>
+		</aside>
+
+	</content>
+</body>
+
+<script type="text/javascript" defer src="JS/index.js">
+</script>	
+</html>

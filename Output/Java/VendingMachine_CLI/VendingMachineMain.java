@@ -1,3 +1,4 @@
+package VendingMachine_CLI;
 import java.util.Scanner;
 
 class STRINGS {
