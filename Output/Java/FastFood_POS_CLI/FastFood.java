@@ -1,4 +1,4 @@
-package pro3;
+package FastFood_POS_CLI;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -24,7 +24,7 @@ class FoodSelf
     public String getName() { return name; }
 }
 
-class BurgerSelf extends FoodSelf
+class BurgerSelf extends FastFood_POS_CLI.FoodSelf
 {
     private boolean isSet;
 
@@ -34,7 +34,6 @@ class BurgerSelf extends FoodSelf
         super(name, price);
         this.isSet= isSet;
         if (isSet) setPrice(price+3000);
-//        if (isSet) setName(name);
     }
 
     public boolean isSet() {
@@ -58,6 +57,7 @@ class MENU_STRINGS
         for (int i = 0; i < str_arr.length; i++)
         {
             if (str_arr[i].equals(str)) index= i;
+            else index= -1;
         }
         return index;
     }
@@ -65,45 +65,50 @@ class MENU_STRINGS
 
 class Price
 {
-    MENU_STRINGS strs_menu;
+    FastFood_POS_CLI.MENU_STRINGS strs_menu;
     private class Main
     {
         private static final int big_mac= 4500;
 //        ...
+
+        private int[] MENUS= {big_mac};
+        protected int getMENUS(int index) { return MENUS[index]; }
     }
     private class Drink
     {
         private static final int coka_cola= 2000;
-//        ...
+        //        ...
+        private int[] MENUS= {coka_cola};
+        protected int getMENUS(int index) { return MENUS[index]; }
     }
     private class Side
     {
         private static final int sake_ice_cream= 1500;
-//        ...
+        //        ...
+        private int[] MENUS= {sake_ice_cream};
+        protected int getMENUS(int index) { return MENUS[index]; }
     }
 
-    private Main M;
-    private Drink D;
-    private Side S;
+    private FastFood_POS_CLI.Price.Main M;
+    private FastFood_POS_CLI.Price.Drink D;
+    private FastFood_POS_CLI.Price.Side S;
 
     //    Singleton
     protected Price(){}
-    private static class InnerInstanceClazz{ private static final Price instance= new Price(); }
-    protected static Price getInstance()   { return InnerInstanceClazz.instance; }
+    private static class InnerInstanceClazz{ private static final FastFood_POS_CLI.Price instance= new FastFood_POS_CLI.Price(); }
+    protected static FastFood_POS_CLI.Price getInstance()   { return FastFood_POS_CLI.Price.InnerInstanceClazz.instance; }
 
+    /**
+     *  Key(Food name)-Value(Food price)  =>  "map"
+     * */
+    private int e_String() { System.out.println(STRING.E_STRING); return -1; }
     //    Main
     protected int getMain(String str)
     {
         String[] menu= strs_menu.getMainMenu();
         int index= strs_menu.getIndex(menu, str);
-        if (menu[index].equals(str)) return M.big_mac;
-//        else if (str == menu[i]) return M.something;
-        else if (menu[index].equals(str.substring(2)))
-        {
-            System.out.println("E: Incorrect String");
-            return -1;
-        }
-        else return -1;
+        if (index >= 0) return M.getMENUS(index);
+        else { return e_String(); } // -1
     }
 
     //    Drink
@@ -113,12 +118,7 @@ class Price
         int index= strs_menu.getIndex(menu, str);
         if (menu[index].equals(str)) return D.coka_cola;
 //        else if (str == menu[i]) return D.something;
-        else if (menu[index].equals(str.substring(2)))
-        {
-            System.out.println("E: Incorrect String");
-            return -1;
-        }
-        return -1;
+        else { return e_String(); } // -1
     }
 
     //    Side
@@ -127,22 +127,15 @@ class Price
         int index= strs_menu.getIndex(menu, str);
         if (menu[index].equals(str)) return S.sake_ice_cream;
 //        else if (str == menu[i]) return S.something;
-        else if (menu[index].equals(str.substring(2)))
-        {
-            System.out.println("E: Incorrect String");
-            return -1;
-        }
-        return -1;
+        else { return e_String(); } // -1
     }
 }
-class Separate extends Price
+class Separate extends FastFood_POS_CLI.Price
 {
     private Separate() {}
-    private static class InnerInstanceClass {
-        private static final Separate instance= new Separate();
-    }
-    public static Separate getInstance() {
-        return InnerInstanceClass.instance;
+    private static class InnerInstanceClass { private static final FastFood_POS_CLI.Separate instance= new FastFood_POS_CLI.Separate(); }
+    public static FastFood_POS_CLI.Separate getInstance() {
+        return FastFood_POS_CLI.Separate.InnerInstanceClass.instance;
     }
 
     public int initSeparate(String str)
@@ -190,8 +183,8 @@ public class FastFood
         boolean isSet= false;
         int order_count= 1;
 
-        Separate separate= Separate.getInstance();
-        MENU_STRINGS STRS= new MENU_STRINGS();
+        FastFood_POS_CLI.Separate separate= FastFood_POS_CLI.Separate.getInstance();
+        FastFood_POS_CLI.MENU_STRINGS STRS= new FastFood_POS_CLI.MENU_STRINGS();
         Scanner sc= new Scanner(System.in);
 
 //        Progress Order
@@ -211,13 +204,13 @@ public class FastFood
 //        Init && Save
         Vector<Object> order_A= new Vector<>();
         final int INDEX_main= 0; final int INDEX_drink= 1; final int INDEX_side= 2;
-        order_A.add(new BurgerSelf(isSet, s_main_menu, separate.getMain(s_main_menu)));
-        order_A.add(new FoodSelf(s_drink, separate.getDrink(s_drink)));
-        order_A.add(new FoodSelf(s_side_menu, separate.getSide(s_side_menu)));
+        order_A.add(new FastFood_POS_CLI.BurgerSelf(isSet, s_main_menu, separate.getMain(s_main_menu)));
+        order_A.add(new FastFood_POS_CLI.FoodSelf(s_drink, separate.getDrink(s_drink)));
+        order_A.add(new FastFood_POS_CLI.FoodSelf(s_side_menu, separate.getSide(s_side_menu)));
 
-        BurgerSelf a_main= (BurgerSelf) order_A.get(INDEX_main);
-        FoodSelf a_drink = (FoodSelf) order_A.get(INDEX_drink);
-        FoodSelf a_side  = (FoodSelf) order_A.get(INDEX_side);
+        FastFood_POS_CLI.BurgerSelf a_main= (FastFood_POS_CLI.BurgerSelf) order_A.get(INDEX_main);
+        FastFood_POS_CLI.FoodSelf a_drink = (FastFood_POS_CLI.FoodSelf) order_A.get(INDEX_drink);
+        FastFood_POS_CLI.FoodSelf a_side  = (FastFood_POS_CLI.FoodSelf) order_A.get(INDEX_side);
 
 //        Output
         final int ORDER_LEN = order_A.size();
@@ -242,5 +235,4 @@ public class FastFood
         System.out.println();
         System.out.printf ("Amount: %d", Arrays.stream(menu_prices).sum());
     }
-
 }
