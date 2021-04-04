@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="394.0" y="0.0">FastFood_POS_CLI.Price</node>
+    <node x="760.0" y="315.5">FastFood_POS_CLI.Price.Main</node>
+    <node x="0.0" y="723.0">FastFood_POS_CLI.BurgerSelf</node>
+    <node x="33.5" y="552.0">FastFood_POS_CLI.FoodSelf</node>
+    <node x="1.5" y="453.0">FastFood_POS_CLI.Separate.InnerInstanceClass</node>
+    <node x="212.0" y="326.5">FastFood_POS_CLI.Price.InnerInstanceClazz</node>
+    <node x="0.0" y="304.0">FastFood_POS_CLI.Separate</node>
+    <node x="290.0" y="552.0">FastFood_POS_CLI.MENU_STRINGS</node>
+    <node x="421.0" y="315.5">FastFood_POS_CLI.Price.Side</node>
+    <node x="560.0" y="552.0">FastFood_POS_CLI.FastFood</node>
+    <node x="609.0" y="315.5">FastFood_POS_CLI.Price.Drink</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="FastFood_POS_CLI.Separate" target="FastFood_POS_CLI.Price">
+      <point x="0.0" y="-49.5" />
+      <point x="96.0" y="274.0" />
+      <point x="416.2" y="274.0" />
+      <point x="-88.80000000000001" y="127.0" />
+    </edge>
+    <edge source="FastFood_POS_CLI.Price.InnerInstanceClazz" target="FastFood_POS_CLI.Price">
+      <point x="0.0" y="-27.0" />
+      <point x="306.5" y="284.0" />
+      <point x="460.6" y="284.0" />
+      <point x="-44.39999999999998" y="127.0" />
+    </edge>
+    <edge source="FastFood_POS_CLI.Price.Side" target="FastFood_POS_CLI.Price">
+      <point x="0.0" y="-38.0" />
+      <point x="0.0" y="127.0" />
+    </edge>
+    <edge source="FastFood_POS_CLI.Separate.InnerInstanceClass" target="FastFood_POS_CLI.Separate">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="FastFood_POS_CLI.Price.Drink" target="FastFood_POS_CLI.Price">
+      <point x="0.0" y="-38.0" />
+      <point x="674.5" y="284.0" />
+      <point x="549.4000000000001" y="284.0" />
+      <point x="44.40000000000009" y="127.0" />
+    </edge>
+    <edge source="FastFood_POS_CLI.Price.Main" target="FastFood_POS_CLI.Price">
+      <point x="0.0" y="-38.0" />
+      <point x="823.0" y="274.0" />
+      <point x="593.8000000000001" y="274.0" />
+      <point x="88.80000000000007" y="127.0" />
+    </edge>
+    <edge source="FastFood_POS_CLI.BurgerSelf" target="FastFood_POS_CLI.FoodSelf">
+      <point x="0.0" y="-49.5" />
+      <point x="0.0" y="60.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8" x="536.5714285714284" y="504.2857142857142" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

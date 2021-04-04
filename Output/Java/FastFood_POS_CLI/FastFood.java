@@ -1,5 +1,7 @@
 package FastFood_POS_CLI;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Vector;
@@ -24,7 +26,7 @@ class FoodSelf
     public String getName() { return name; }
 }
 
-class BurgerSelf extends FastFood_POS_CLI.FoodSelf
+class BurgerSelf extends FoodSelf
 {
     private boolean isSet;
 
@@ -65,38 +67,35 @@ class MENU_STRINGS
 
 class Price
 {
-    FastFood_POS_CLI.MENU_STRINGS strs_menu;
+    MENU_STRINGS strs_menu;
     private class Main
     {
         private static final int big_mac= 4500;
 //        ...
 
         private int[] MENUS= {big_mac};
-        protected int getMENUS(int index) { return MENUS[index]; }
     }
     private class Drink
     {
         private static final int coka_cola= 2000;
-        //        ...
+//        ...
         private int[] MENUS= {coka_cola};
-        protected int getMENUS(int index) { return MENUS[index]; }
     }
     private class Side
     {
         private static final int sake_ice_cream= 1500;
-        //        ...
+//        ...
         private int[] MENUS= {sake_ice_cream};
-        protected int getMENUS(int index) { return MENUS[index]; }
     }
 
-    private FastFood_POS_CLI.Price.Main M;
-    private FastFood_POS_CLI.Price.Drink D;
-    private FastFood_POS_CLI.Price.Side S;
+    private Main M= new Main();
+    private Drink D= new Drink();
+    private Side S= new Side();
 
     //    Singleton
     protected Price(){}
-    private static class InnerInstanceClazz{ private static final FastFood_POS_CLI.Price instance= new FastFood_POS_CLI.Price(); }
-    protected static FastFood_POS_CLI.Price getInstance()   { return FastFood_POS_CLI.Price.InnerInstanceClazz.instance; }
+    private static class InnerInstanceClazz{ private static final Price instance= new Price(); }
+    protected static Price getInstance()   { return InnerInstanceClazz.instance; }
 
     /**
      *  Key(Food name)-Value(Food price)  =>  "map"
@@ -105,37 +104,39 @@ class Price
     //    Main
     protected int getMain(String str)
     {
+        str= str.toLowerCase();
         String[] menu= strs_menu.getMainMenu();
         int index= strs_menu.getIndex(menu, str);
-        if (index >= 0) return M.getMENUS(index);
+        if (index >= 0) return M.MENUS[index];
         else { return e_String(); } // -1
     }
 
     //    Drink
     protected int getDrink(String str)
     {
+        str= str.toLowerCase();
         String[] menu= strs_menu.getDRINK();
         int index= strs_menu.getIndex(menu, str);
-        if (menu[index].equals(str)) return D.coka_cola;
-//        else if (str == menu[i]) return D.something;
+        if (index >= 0) return D.MENUS[index];
         else { return e_String(); } // -1
     }
 
     //    Side
-    protected int getSide(String str) {
+    protected int getSide(String str)
+    {
+        str= str.toLowerCase();
         String[] menu= strs_menu.getSideMenu();
         int index= strs_menu.getIndex(menu, str);
-        if (menu[index].equals(str)) return S.sake_ice_cream;
-//        else if (str == menu[i]) return S.something;
+        if (index >= 0) return S.MENUS[index];
         else { return e_String(); } // -1
     }
 }
-class Separate extends FastFood_POS_CLI.Price
+class Separate extends Price
 {
     private Separate() {}
-    private static class InnerInstanceClass { private static final FastFood_POS_CLI.Separate instance= new FastFood_POS_CLI.Separate(); }
-    public static FastFood_POS_CLI.Separate getInstance() {
-        return FastFood_POS_CLI.Separate.InnerInstanceClass.instance;
+    private static class InnerInstanceClass { private static final Separate instance= new Separate(); }
+    public static Separate getInstance() {
+        return InnerInstanceClass.instance;
     }
 
     public int initSeparate(String str)
@@ -179,57 +180,90 @@ public class FastFood
         return slide + new Scanner(System.in).nextLine();
     }
 
+    public static void printOrders(String order, String name)
+    {
+        System.out.printf(order, name.substring(2));
+    }
+
+    public static void printTime()
+    {
+        LocalDate today= LocalDate.now();
+        LocalTime now= LocalTime.now();
+
+        System.out.println(today);
+        System.out.println(now);
+    }
+
     public static void main(String[] args) {
         boolean isSet= false;
         int order_count= 1;
 
-        FastFood_POS_CLI.Separate separate= FastFood_POS_CLI.Separate.getInstance();
-        FastFood_POS_CLI.MENU_STRINGS STRS= new FastFood_POS_CLI.MENU_STRINGS();
+        Separate separate= Separate.getInstance();
+        MENU_STRINGS STRS= new MENU_STRINGS();
         Scanner sc= new Scanner(System.in);
 
+        String s_main_menu= ""; String s_drink= ""; String s_side_menu= "";
+        boolean pass_main= false; boolean pass_drink= false; boolean pass_side= false;
+
+        while (true)
+        {
 //        Progress Order
-//        Main
-        String s_main_menu= setFood(STRING.MAIN, STRS.getMainMenu(), "M ");
-        System.out.println(STRING.UPGRADE);
-        isSet= checkSet(sc.nextLine());
+            String[] mains= STRS.getMainMenu();
+            s_main_menu= setFood(STRING.MAIN, mains, "M ");
+            int a_index= STRS.getIndex(mains, s_main_menu.substring(2));
+            if (a_index == -1) { System.out.println(STRING.E_STRING); continue;}
+            else
+            {
+                System.out.println(STRING.UPGRADE);
+                isSet= checkSet(sc.nextLine());
+                pass_main= true;
+            }
 
-//        Drink
-        String s_drink= setFood(STRING.DRINK, STRS.getDRINK(),"D ");
-        System.out.println(s_drink);
+            String[] drinks= STRS.getDRINK();
+            s_drink= setFood(STRING.DRINK, drinks,"D ");
+            int b_index= STRS.getIndex(drinks,s_drink.substring(2));
+            if (b_index == -1) { System.out.println(STRING.E_STRING); continue;}
+            else { pass_drink= true; }
 
-//        Side menu
-        String s_side_menu= setFood(STRING.SIDE,STRS.getSideMenu(),"S ");
-        System.out.println(s_side_menu);
+            String[] sides= STRS.getSideMenu();
+            s_side_menu= setFood(STRING.SIDE,STRS.getSideMenu(),"S ");
+            int c_index= STRS.getIndex(sides, s_side_menu.substring(2));
+            if (c_index == -1) { System.out.println(STRING.E_STRING); continue;}
+            else { pass_side= true; }
+
+            if (pass_main && pass_drink && pass_side) { break; }
+        }
 
 //        Init && Save
         Vector<Object> order_A= new Vector<>();
         final int INDEX_main= 0; final int INDEX_drink= 1; final int INDEX_side= 2;
-        order_A.add(new FastFood_POS_CLI.BurgerSelf(isSet, s_main_menu, separate.getMain(s_main_menu)));
-        order_A.add(new FastFood_POS_CLI.FoodSelf(s_drink, separate.getDrink(s_drink)));
-        order_A.add(new FastFood_POS_CLI.FoodSelf(s_side_menu, separate.getSide(s_side_menu)));
+        order_A.add(new BurgerSelf(isSet, s_main_menu, separate.initSeparate(s_main_menu)));
+        order_A.add(new FoodSelf(s_drink, separate.initSeparate(s_drink)));
+        order_A.add(new FoodSelf(s_side_menu, separate.initSeparate(s_side_menu)));
 
-        FastFood_POS_CLI.BurgerSelf a_main= (FastFood_POS_CLI.BurgerSelf) order_A.get(INDEX_main);
-        FastFood_POS_CLI.FoodSelf a_drink = (FastFood_POS_CLI.FoodSelf) order_A.get(INDEX_drink);
-        FastFood_POS_CLI.FoodSelf a_side  = (FastFood_POS_CLI.FoodSelf) order_A.get(INDEX_side);
+        BurgerSelf a_main= (BurgerSelf) order_A.get(INDEX_main);
+        FoodSelf a_drink = (FoodSelf) order_A.get(INDEX_drink);
+        FoodSelf a_side  = (FoodSelf) order_A.get(INDEX_side);
 
 //        Output
         final int ORDER_LEN = order_A.size();
-        int[] menu_prices   = new int[ORDER_LEN];
-        String[] menu_names = new String[ORDER_LEN];
 
 //        Remove separate-tag && Get each a price-value
+        String[] menu_names = new String[ORDER_LEN];
         menu_names[INDEX_main] = a_main.getName();
         menu_names[INDEX_drink]= a_drink.getName();
         menu_names[INDEX_side] = a_side.getName();
+
+        int[] menu_prices   = new int[ORDER_LEN];
         menu_prices[INDEX_main] = separate.initSeparate(menu_names[INDEX_main]);
         menu_prices[INDEX_drink]= separate.initSeparate(menu_names[INDEX_drink]);
         menu_prices[INDEX_side] = separate.initSeparate(menu_names[INDEX_side]);
 
-        System.out.printf(STRING.ORDER, countOrder(order_count));
+        System.out.printf(STRING.ORDER, countOrder(order_count)); printTime();
         if (a_main.isSet()) { menu_names[INDEX_main]+= " Set"; }
-        System.out.printf ("Burger: %s\n", menu_names[INDEX_main].substring(2));
-        System.out.printf ("Drink:  %s\n", menu_names[INDEX_drink].substring(2));
-        System.out.printf ("Side:   %s\n", menu_names[INDEX_side].substring(2));
+        printOrders("Burger: %s\n", menu_names[INDEX_main]);
+        printOrders("Drink:  %s\n", menu_names[INDEX_drink]);
+        printOrders("Side:   %s\n", menu_names[INDEX_side]);
         System.out.println(STRING.LINE);
         for (int price:menu_prices) System.out.printf("/ %d ", price);
         System.out.println();
