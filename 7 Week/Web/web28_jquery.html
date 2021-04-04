@@ -28,7 +28,7 @@
 	<h1> Select-Select</h1>
 	<select id="mainCate">
 		<option selected="selected" value="1"> ALL </option>
-		<option value="2">스포츠</option>
+		<option value="2">음식</option>
 		<option value="3">게임</option>
 	</select>
 
@@ -65,15 +65,18 @@
 	{
 		mainval= $("#mainCate > option:selected").val();
 		initdat= "<option value=''> 전체 </option>";
-		switch(mainVal) 
+		switch(mainval) 
 		{
 			case '1':
+				curdate= initdat;
+				break;
+			case '2':
 				curdate= initdat;
 				curdate+= "<option value= 'm'> 밥 </option>";
 				curdate+= "<option value= 's'> 찌개 </option>";
 				$("select#subCate").html(curdate);
 				break;
-			case '2':
+			case '3':
 				curdate= initdat;
 				curdate+= "<option value= 'bb'> 야구 </option>";
 				curdate+= "<option value= 'fb'> 축구 </option>";
@@ -83,7 +86,7 @@
 				break;	
 		}
 	}
-	// selectMain();
+	setInterval(selectMain, 500);
 
 index= 0;
 	$(()=>{
