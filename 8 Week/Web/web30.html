@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		nav {
+			width: 780px;
+			float: right;
+			margin-top: 35px;
+			position: relative;
+		}
+	</style>
+</head>
+
+<body>
+	<nav>
+		<ul class="menu">
+			<li><a href="">main_menu_1</a>
+				<ul class="sub">
+					<li><a href="">sub_menu_1</a></li>
+					<li><a href="">sub_menu_2</a></li>
+					<li><a href="">sub_menu_3</a></li>
+				</ul>
+			</li>
+			<li><a href="">main_menu_2</a>
+				<ul class="sub">
+					<li><a href="">sub_menu_1</a></li>
+					<li><a href="">sub_menu_2</a></li>
+					<li><a href="">sub_menu_3</a></li>
+				</ul>
+			</li>
+			<li><a href="">main_menu_3</a></li>
+			<li><a href="">main_menu_4</a></li>
+		</ul>
+	</nav>
+</body>
+
+<script def src="../../jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(()=>{
+		$(".menu li").hover(
+			function() {
+				$("ul.sub", this).slideDown("fast");
+			},
+			function() {
+				$("ul.sub", this).slideUP("fast");
+			}
+		);
+	});
+</script>
+</script>	
+</html>

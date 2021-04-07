@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		
+	</style>
+</head>
+
+<body>
+	<div class="ex01">
+		<h2>Hover img</h2>
+		<img id="img" src="imgs/D1.png">
+	</div><br><br>
+
+	<div class="ex02">
+		<h2> Login form event </h2>
+		<form>
+			<input type="text" id="id"> <br>
+			<input type="text" id="pw">
+		</form>
+	</div> <br><br>
+
+	<div class="ex03">
+		<h2> 체크박스 변경 이벤트</h2>
+		<input type="checkbox" id="all">
+		<label for="all">전체</label>
+
+		<div id="check_item">
+			<input type="checkbox" id="hobby1">
+			<label for="hobby1">테니스</label>
+
+			<input type="checkbox" id="hobby2">
+			<label for="hobby2">노래부르기</label>
+
+			<input type="checkbox" id="hobby3">
+			<label for="hobby3">여행</label>
+
+			<input type="checkbox" id="hobby4">
+			<label for="hobby4">게임</label>
+		</div>
+
+	</div>
+</body>
+
+<script def src="../../jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(()=>{
+		// EX 01
+		$("#img").hover(
+			function(){
+				$(this).attr("src", "imgs/D2.png");
+			},
+			function() {
+				$(this).attr("src", "imgs/D1.png");
+			});	
+	});
+	$(()=>{
+		// EX 03
+		$("#all").change(function(){
+			if (this.checked) {
+				$("#check_item").children().attr("checked","true");
+			}
+			else {
+				$("#check_item").children().attr("checked", "false");
+			}
+		});
+	});
+		
+	
+</script>
+</script>	
+</html>
