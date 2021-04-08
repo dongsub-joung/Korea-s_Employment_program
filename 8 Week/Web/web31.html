@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>		
+	<style type="text/css">
+		div {
+			width: 300px;
+			height: 60px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>JS XML 비동기 통신 예제</h1>
+	<div id="target">
+		
+	</div>
+	<button onclick="getFromServer()"> 텍스트 데이터 가져오기 </button>
+</body>
+
+<script def src="../../jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+	function getFromServer() {
+		let xmlreq;
+
+		// window: code for IE7+, Firefox, Chrome, Opera, Safari
+		if(window.XMLHttpRequest) { xmlreq= new XMLHttpRequest(); }
+		// code for IE6, IE5
+		else { xmlreq= new ActiveXObject("Microsoft.XMLHTTP"); }
+
+		// 비동기통신 결과를 처리하는 콜백함수
+		xmlhttp.onreadystatechange= () => {
+			if (xmlhttp.readyStatte == 4 && xmlhttp.status == 200) 
+			{
+				// 성공 시 처리할 내용
+				// alert(xmlhttp.responseText);
+				document.getElementById("target").innerText= XMLHttpRequest.responseText;
+			} else 
+			{
+				alert("통신에 실패했습니다.");
+			}
+		}
+	}
+	xmlreq.open("GET", "textfile.txt", true);
+	xmlreq.send();
+
+
+	// jquery 이용하기
+	$(()=> {
+		$("button").click(function(){ 
+			$("target").load("textfile.txt"); 
+		});
+	});
+</script>
+</script>	
+</html>
