@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>	
+<style type="text/css">
+
+	a {
+		text-decoration: none;
+		color: black;
+	}
+	a:hover {
+		color: lightblue !important;
+	}
+	/* aside bar */
+	aside {
+		text-align: center;
+		clear: both;
+	}
+	aside strong {
+		font-size: 2.2em;
+	}
+	aside ul {
+		margin: inherit auto;
+	}
+	/* aside table */
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+	td {
+		width: 375px;
+		padding: 10px auto;
+		padding-top: 20px;
+	}
+	.depe02 td {
+		border: 0.2px solid gray;
+		font-size: 1.5em;
+		padding: 20px;
+	}
+
+	/* Menu */
+	.main_ul li {
+		margin-right: 50px;
+		text-decoration: none;
+		font-size: 1.5em;
+		list-style-type: none;
+		cursor: pointer;
+	}
+	.menu_zone{
+		float: left;
+		width: 1200px;
+	}
+	.depe1{
+		float: left;
+		margin: 25px;
+	}
+	.dp_non td{
+		cursor: default;
+	}
+	.removing{
+		display: none;
+	}
+	.active{
+		display: contents;
+	}
+</style>
+<body>
+	<nav class="menu_zone">
+		<ul class="main_ul">
+			<li class="depe1" id="menu_02">Main_01</li>
+			<li class="depe1" id="menu_03">Main_02</li>
+		</ul>
+	</nav>
+
+	<aside>
+		<!-- removing -->
+		<ul class="sub_m2 removing ">
+			<strong>Main_01</strong> <br><br>
+						<table>
+				<tr class="depe02 dp_non">
+					<td>sub_A</td>
+					<td>sub_B</td>
+					<td>sub_C</td>
+				</tr>
+				<tr class="m1_line01">
+					<td><a href="">sub_A_01</a></td>
+					<td><a href="">sub_B_01</a></td>
+					<td><a href="">sub_C_01</a></td>
+				</tr>
+				<tr>
+					<td><a href="">sub_A_02</a></td>
+					<td><a href="">sub_B_02</a></td>
+					<td><a href="">sub_C_03</a></td>
+				</tr>
+				<tr>
+					<td><a href="">sub_A_03</a></td>
+					<td><a href="">sub_B_03</a></td>
+					<td><a href="">sub_C_03</a></td>
+				</tr>
+			</table>
+		</ul>
+
+		<ul class="sub_m3 removing">
+			<strong>Main_02</strong> <br><br>
+						<table>
+				<tr class="depe02 dp_non">
+					<td>sub_A</td>
+					<td>sub_B</td>
+					<td>sub_C</td>
+				</tr>
+				<tr class="m1_line01">
+					<td><a href="">sub_A_01</a></td>
+					<td><a href="">sub_B_01</a></td>
+					<td><a href="">sub_C_01</a></td>
+				</tr>
+				<tr>
+					<td><a href="">sub_A_02</a></td>
+					<td><a href="">sub_B_02</a></td>
+					<td><a href="">sub_C_03</a></td>
+				</tr>
+				<tr>
+					<td><a href="">sub_A_03</a></td>
+					<td><a href="">sub_B_03</a></td>
+					<td><a href="">sub_C_03</a></td>
+				</tr>
+			</table>
+		</ul>
+	</aside>
+</body>
+<script def src="../../../jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$("#menu_01").hover(
+		()=>{
+			$(".sub_m1").removeClass("removing");
+			$(".sub_m1").css("display", "contents");
+	});
+	$("#menu_01").mouseout(function(){
+		$(".sub_m1").css("display", "none");
+	});
+
+	$("#menu_02").hover(
+		()=>{
+			$(".sub_m2").removeClass("removing");
+			$(".sub_m2").css("display", "contents");
+	});
+	$("#menu_02").mouseout(function(){
+		$(".sub_m2").css("display", "none");
+	});
+	$("#menu_03").hover(
+	()=>{
+		$(".sub_m3").removeClass("removing");
+		$(".sub_m3").css("display", "contents");
+	});
+	$("#menu_03").mouseout(function(){
+		$(".sub_m3").css("display", "none");
+	});
+
+</script>
+</html>
