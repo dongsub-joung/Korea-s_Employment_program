@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index page</title>
+    <style type="text/css">
+        img{
+            border: 1px solid black;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .main_ul li {
+            text-decoration: none;
+            font-size: 1.5em;
+            list-style-type: none;
+            cursor: pointer;
+        }
+        .menu_zone{
+            float: left;
+            width: 1200px;
+        }
+        .depe1{
+            float: left;
+            margin: 25px;
+        }
+        .dp_non td{
+            cursor: default;
+        }
+
+        #sliding_menu a {
+            position: relative;
+            left: 0px; top: 0px;
+            margin: 0px 10px;
+            padding: 5px;
+            line-height: 25px;
+        }
+
+        /* aside bar */
+        aside {
+            text-align: center;
+            clear: both;
+        }
+        aside strong {
+            font-size: 2.2em;
+        }
+        aside ul {
+            margin: inherit auto;
+        }
+        /* aside table */
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        td {
+            width: 375px;
+            padding: 10px auto;
+            padding-top: 20px;
+        }
+        .depe02 td {
+            border: 0.2px solid gray;
+            font-size: 1.5em;
+            padding: 20px;
+        }
+
+
+        /* Menu Animation */
+        /*base code*/
+        .animated {
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+        .animated.infinite {
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+        }
+        .animated.hinge {
+            -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+        }
+        /*the animation definition*/
+        @-webkit-keyframes rubberBand {
+            0% {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1)
+            }
+            30% {
+                -webkit-transform: scale3d(1.25, .75, 1);
+                transform: scale3d(1.25, .75, 1)
+            }
+            40% {
+                -webkit-transform: scale3d(0.75, 1.25, 1);
+                transform: scale3d(0.75, 1.25, 1)
+            }
+            50% {
+                -webkit-transform: scale3d(1.15, .85, 1);
+                transform: scale3d(1.15, .85, 1)
+            }
+            65% {
+                -webkit-transform: scale3d(.95, 1.05, 1);
+                transform: scale3d(.95, 1.05, 1)
+            }
+            75% {
+                -webkit-transform: scale3d(1.05, .95, 1);
+                transform: scale3d(1.05, .95, 1)
+            }
+            100% {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1)
+            }
+        }
+        @keyframes rubberBand {
+            0% {
+                -webkit-transform: scale3d(1, 1, 1);
+                -ms-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1)
+            }
+            30% {
+                -webkit-transform: scale3d(1.25, .75, 1);
+                -ms-transform: scale3d(1.25, .75, 1);
+                transform: scale3d(1.25, .75, 1)
+            }
+            40% {
+                -webkit-transform: scale3d(0.75, 1.25, 1);
+                -ms-transform: scale3d(0.75, 1.25, 1);
+                transform: scale3d(0.75, 1.25, 1)
+            }
+            50% {
+                -webkit-transform: scale3d(1.15, .85, 1);
+                -ms-transform: scale3d(1.15, .85, 1);
+                transform: scale3d(1.15, .85, 1)
+            }
+            65% {
+                -webkit-transform: scale3d(.95, 1.05, 1);
+                -ms-transform: scale3d(.95, 1.05, 1);
+                transform: scale3d(.95, 1.05, 1)
+            }
+            75% {
+                -webkit-transform: scale3d(1.05, .95, 1);
+                -ms-transform: scale3d(1.05, .95, 1);
+                transform: scale3d(1.05, .95, 1)
+            }
+            100% {
+                -webkit-transform: scale3d(1, 1, 1);
+                -ms-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1)
+            }
+        }
+        .rubberBand {
+            -webkit-animation-name: rubberBand;
+            animation-name: rubberBand
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="wrapper">
+    <!-- html 속 html 넣기 -->
+    <!-- https://soft91.tistory.com/27 -->
+    <nav class="menu_zone">
+        <ul class="main_ul">
+            <li class="depe1" id="menu_01">Main01</li>
+            <li class="depe1" id="menu_02">Main02</li>
+        </ul>
+    </nav>
+
+    <aside>
+        <!-- removing -->
+        <ul class="sub_m1">
+            <strong>Main_01</strong> <br><br>
+            <table>
+                <tr class="depe02 dp_non">
+                    <td>Sub_A</td>
+                    <td>Sub_B</td>
+                    <td>Sub_C</td>
+                </tr>
+                <tr class="m1_line01">
+                    <td><a href="#">Sub_A_01</a></td>
+                    <td><a href="#">Sub_B_01</a></td>
+                    <td><a href="#">Sub_C_01</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Sub_A_01</a></td>
+                    <td><a href="#">Sub_B_02</a></td>
+                    <td><a href="#">Sub_C_02</a></td>
+                </tr>
+            </table>
+        </ul>
+
+        <ul class="sub_m2">
+            <strong>Main_02</strong> <br><br>
+            <table>
+                <tr class="depe02 dp_non">
+                    <td>Sub_A</td>
+                    <td>Sub_B</td>
+                    <td>Sub_C</td>
+                    <td>Sub_D</td>
+                </tr>
+                <tr>
+                    <td><a href="#">Sub_A_01</a></td>
+                    <td><a href="#">Sub_B_01</a></td>
+                    <td><a href="#">Sub_C_01</a></td>
+                    <td><a href="#">Sub_D_01</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Sub_A_02</a></td>
+                    <td><a href="#">Sub_B_02</a></td>
+                    <td><a href="#">Sub_C_02</a></td>
+                    <td><a href="#">Sub_D_02</a></td>
+                </tr>
+            </table>
+        </ul>
+    </aside>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+    // DOM Pre-Setting
+    setDisplay($("aside ul"));
+
+    // Already DOM setting
+    $(()=>{
+        // Display Control
+        $("#menu_01").click(function(){ togging($(".sub_m1")); });
+        $("table ").
+        $("#menu_02").click(function(){ togging($(".sub_m2")); });
+
+        // Menu Animation
+        $('#menu_01').hover(function(){ animationBtn($(this)); });
+        $('#menu_02').hover(function(){ animationBtn($(this)); });
+    });
+
+    function onAppear(obj)
+    {
+        if(obj.is(":visible"))
+        {
+            obj.slideUp();
+        }else {
+            obj.slideDown();
+        }
+    }
+    function togging(obj) {
+        if (obj.css("display") == "none") {
+            obj.stop().slideDown(600);
+        } else {
+            obj.stop().slideUp(600);
+        }
+    }
+
+    function animationBtn(obj){
+        obj.toggleClass('rubberBand animated');
+        obj.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e){
+            $(e.target).removeClass('rubberBand animated');
+        });
+    }
+
+    function setDisplay(obj){ obj.css("display", "none"); }
+
+</script>
+</html>
