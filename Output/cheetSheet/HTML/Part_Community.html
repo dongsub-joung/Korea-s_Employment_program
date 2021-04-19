@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 공지사항 </title>
+    <style type="text/css">
+      html {
+          font-family: "Noto Sans KR", sans-serif;
+          }
+
+          /* 노말라이즈 */
+          body, ul, li, h1, h2, h3, h4, h5, h6 {
+              margin: 0;
+                  padding: 0;
+                      list-style: none;
+                      }
+
+                      a:link {
+                          color: lightblue;
+                          }
+
+                          /* 라이브러리 */
+                          .con {
+                              margin: 0 auto;
+                              }
+
+                              .img-box>img {
+                                  width: 100%;
+                                      display: block;
+                                      }
+
+                                      .row::after {
+                                          content: "";
+                                              display: block;
+                                                  clear: both;
+                                                  }
+
+                                                  .cell {
+                                                      float: left;
+                                                          box-sizing: border-box;
+                                                          }
+
+                                                          .cell-right {
+                                                              float: right;
+                                                                  box-sizing: border-box;
+                                                                  }
+
+                                                                  .margin-0-auto {
+                                                                      margin: 0 auto;
+                                                                      }
+
+                                                                      .block {
+                                                                          display: block;
+                                                                          }
+
+                                                                          .inline-block {
+                                                                              display: inline-block;
+                                                                              }
+
+                                                                              .text-align-center {
+                                                                                  text-align: center;
+                                                                                  }
+
+                                                                                  .line-height-0-ch-only {
+                                                                                      line-height: 0;
+                                                                                      }
+
+                                                                                      .line-height-0-ch-only>* {
+                                                                                          line-height: normal;
+                                                                                          }
+
+                                                                                          .relative {
+                                                                                              position: relative;
+                                                                                              }
+
+                                                                                              .absolute-left {
+                                                                                                  position: absolute;
+                                                                                                      left: 0;
+                                                                                                      }
+
+                                                                                                      .absolute-right {
+                                                                                                          position: absolute;
+                                                                                                              right: 0;
+                                                                                                              }
+
+                                                                                                              .absolute-middle {
+                                                                                                                  position: absolute;
+                                                                                                                      top: 50%;
+                                                                                                                          transform: translateY(-50%);
+                                                                                                                          }
+
+                                                                                                                          /* 커스텀 */
+                                                                                                                          /* 반응형 레이아웃 */
+                                                                                                                          .con {
+                                                                                                                              max-width: 950px;
+                                                                                                                              }
+
+                                                                                                                              .con-min-width {
+                                                                                                                                  min-width: 320px;
+                                                                                                                                  }
+
+                                                                                                                                  .top-menu a {
+                                                                                                                                      text-decoration: none;
+                                                                                                                                          color: gray;
+                                                                                                                                              font-weight: bold;
+                                                                                                                                                  font-size: 1.2rem;
+                                                                                                                                                  }
+
+                                                                                                                                                  html, body {
+                                                                                                                                                      overflow-x: hidden;
+                                                                                                                                                      }
+
+                                                                                                                                                      .table-common>table {
+                                                                                                                                                          width: 100%;
+                                                                                                                                                              border-collapse: collapse;
+                                                                                                                                                              }
+
+                                                                                                                                                              .table-common{
+                                                                                                                                                                  text-align:center;
+                                                                                                                                                                  }
+
+                                                                                                                                                                  .table-common>table th, .table-common>table td {
+                                                                                                                                                                      border: 1px solid black;
+                                                                                                                                                                          padding: 10px;
+                                                                                                                                                                              /*width: 100px;*/
+                                                                                                                                                                              }
+
+                                                                                                                                                                              headr h1 {
+                                                                                                                                                                                  padding-top: 150px;
+                                                                                                                                                                                      padding-bottom: 100px;
+                                                                                                                                                                                      }
+    </style>
+</head>
+
+<body>
+
+<headr>
+  <h1 class="con">공지사항</h1> <br><br>
+</headr>
+<section class="article-list table-common con">
+  <table border="1">
+    <thead>
+    <tr>
+      <th>번호</th>
+      <th>글 내용</th>
+      <th>아이디</th>
+      <th>날짜</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="start">
+      <td id="d_id">a</td>
+      <td id="d_title">b</td>
+      <td id="d_user">c</td>
+      <td id="d_date">d</td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+  // Receive User Object
+  const doc_info= [
+          {id: 1, title: "공지 게시판입니다.", user_id: `siro`, date: "2021.01.01"},
+          {id: 2, title: "자유 게시판입니다.", user_id: `kuro`, date: "2021.01.02"},
+          {id: 3, title: "홍보 게시판입니다.", user_id: `namu`, date: "2021.01.03"}
+  //        .....
+  ]
+
+  // Get Document Max Index
+  // Print * 5
+  const MAX_INDEX= 10;
+  const MAX_ROW= doc_info.length;  // default return 0
+
+  function addTag(index, obj)
+  {
+    const ID= obj[index].id;
+    const TITLE= obj[index].title;
+    const USER_ID= obj[index].user_id;
+    const DATE= doc_info[index].date;
+
+    // obj: tbody
+    const add_tr= document.createElement('tr');
+
+    // Init adding
+    $("tbody").append(add_tr);
+    $("tbody tr")[index].outerHTML= `<td id=\"d_id\">${ID}</td>\n <td id=\"d_title\">${TITLE}</td>\n <td id=\"d_user\">${USER_ID}</td>\n <td id=\"d_date\">${DATE}</td>\n`;
+
+    // Bin code
+    // const add_td= document.createElement('td');
+    //  for (i=0; i<MAX_COL; i++) { $("tbody tr").append(add_td); }
+    //  for (i=1; i<doc_info.length; i++)
+  }
+
+  $(()=>{
+    // control row index
+    let index= 0;
+    // $("tr td") obj array index
+    let idx= 0;
+
+    for (j=0; j<=MAX_ROW; j++)
+    {
+      // Add row
+      addTag(index, doc_info);
+      index++; idx++;
+      if (MAX_INDEX < j) break;
+    }
+  });
+
+      // console.log(j);
+      // for (i=0; i<MAX_COL; i++)
+      // {
+      //   // console.log(idx);
+      //   switch (i)
+      //   {
+      //     case 0:
+      //       // $("tr td")[0].textContent= doc_info[0].id;
+      //      .textContent= doc_info[j].id;
+      //       break;
+      //     case 1:
+      //       td_obj[idx].textContent= doc_info[j].title;
+      //       break;
+      //     case 2:
+      //       td_obj[idx].textContent= doc_info[j].user_id;
+      //       break;
+      //     case 3:
+      //       td_obj[idx].textContent= doc_info[j].date;
+      //       break;
+      //   }
+
+</script>
+</html>
