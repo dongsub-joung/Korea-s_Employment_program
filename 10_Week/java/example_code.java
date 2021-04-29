@@ -36,6 +36,6 @@ public class example_code extends JFrame {
     }
 
     public static void main(String[] args) {
-        new example_code();
+//        new example_code();
     }
 }
