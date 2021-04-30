@@ -1,6 +1,17 @@
 import java.io.*;
 import java.util.Arrays;
 
+class BufferedIO{
+    void ex01(){
+        try(FileOutputStream fos= new FileOutputStream( "123.txt" )) {
+            BufferedOutputStream bos= new BufferedOutputStream( fos,5 );
+        }
+        catch ( IOException e ) {
+            e.printStackTrace( );
+        }
+    }
+}
+
 class FileStream {
     final String DATA = "C:\\Users\\Administrator\\IdeaProjects\\Korea-s_Employment_program\\11_Week\\java\\data\\data.txt";
 
