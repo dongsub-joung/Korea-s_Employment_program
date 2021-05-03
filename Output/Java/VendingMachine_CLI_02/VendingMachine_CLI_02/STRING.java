@@ -1,4 +1,4 @@
-package pro1;
+package VendingMachine_CLI_02;
 
 class STRING
 {
