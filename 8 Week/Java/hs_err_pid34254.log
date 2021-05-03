@@ -716,7 +716,7 @@ Dynamic libraries:
 VM Arguments:
 jvm_args: -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=51115:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 
 java_command: java30
-java_class_path (initial): /Users/dongsub/IdeaProjects/test/out/production/test
+java_class_path (initial): /Users/dongsub/IdeaProjects/project2/out/production/project2
 Launcher Type: SUN_STANDARD
 
 [Global flags]
@@ -771,7 +771,7 @@ SIGQUIT: [libjvm.dylib+0x82b710], sa_mask[0]=11111111111111111111111111111111, s
 
 OS:uname: Darwin 20.3.0 Darwin Kernel Version 20.3.0: Thu Jan 21 00:06:51 PST 2021; root:xnu-7195.81.3~1/RELEASE_ARM64_T8101 x86_64
 OS uptime: 0 days 4:43 hours
-rlimit (soft/hard): STACK 8176k/65520k , CORE 0k/infinity , NPROC 2666/4000 , NOFILE 10240/infinity , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK infinity/infinity , RSS infinity/infinity
+rlimit (soft/hard): STACK 8176k/65520k , CORE 0k/infinity , NPROC 2666/4000 , NOFILE 10240/infinity , AS infinity/infinity , CPU infinity/infinity , project2.DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK infinity/infinity , RSS infinity/infinity
 load average: 3.25 3.12 3.09
 
 CPU: total 8 (initial active 8) (1 cores per cpu, 1 threads per core) family 6 model 44 stepping 0 microcode 0x0, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, aes, clmul, tsc, tscinvbit, tscinv, clflush
