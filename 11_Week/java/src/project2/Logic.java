@@ -12,21 +12,28 @@ import java.util.Iterator;
  * 반복
  */
 public class Logic {
+
     private static ArrayList<String> number_value = new ArrayList<>();
     private static ArrayList<String> operator_value = new ArrayList<>();
     private static double result = 0;
 
-    public static String printNumbers(){
-        String str= "";
-        for (Iterator it= number_value.iterator(); it.hasNext();){
-            Object obj= it.next();
-            str+= (String) obj + ",";
+    public static boolean duplicateCheck(){
+        String[] numbers = number_value.toArray(new String[number_value.size()]);
+        String[] operators = operator_value.toArray(new String[operator_value.size()]);
+
+        return ((numbers.length / operators.length) == 0);
+    }
+
+    public static String printNumbers() {
+        String str = "";
+        for (Iterator it = number_value.iterator(); it.hasNext(); ) {
+            Object obj = it.next();
+            str += (String) obj + ",";
         }
         return str;
     }
 
-    public static boolean checkOperatorIsNotNull()
-    {
+    public static boolean checkOperatorIsNotNull() {
         return operator_value.isEmpty();
     }
 
@@ -42,27 +49,26 @@ public class Logic {
         number_value.clear();
         operator_value.clear();
         result = 0;
+
     }
 
     public static void cal() {
         String[] numbers = number_value.toArray(new String[number_value.size()]);
         String[] operators = operator_value.toArray(new String[operator_value.size()]);
 
-       if ((numbers.length % operators.length) == 0)
-       {
-           //        Trace Value stream [numbers, operators]
-           for (String v : numbers) System.out.println(v);
-           System.out.println("=========");
-           for (String v : operators) System.out.println(v);
-           System.out.println("=========");
+        //        Trace Value stream [numbers, operators]
+        for (String v : numbers) System.out.println(v);
+        System.out.println("=========");
+        for (String v : operators) System.out.println(v);
+        System.out.println("=========");
 
-           final int RANGE = numbers.length;
-           double a = (double) Integer.parseInt(numbers[0]), b = (double) Integer.parseInt(numbers[1]);
-           if (RANGE <= 2) result = cal_operate(a, b, operators[0].charAt(0));
-           else {
-               result = cal_operate(result, Integer.parseInt(numbers[RANGE - 1]), operators[operators.length - 1].charAt(0));
-           }
-       } else return;
+        final int RANGE = numbers.length;
+        double a = (double) Integer.parseInt(numbers[0]), b = (double) Integer.parseInt(numbers[1]);
+        if (RANGE <= 2) result = cal_operate(a, b, operators[0].charAt(0));
+        else {
+            result = cal_operate(result, Integer.parseInt(numbers[RANGE - 1]), operators[operators.length - 1].charAt(0));
+        }
+
     }
 
     public static double cal_operate(double a, double b, char c) {

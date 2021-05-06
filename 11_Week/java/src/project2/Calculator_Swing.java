@@ -10,14 +10,75 @@ import java.awt.event.ActionListener;
 public class Calculator_Swing extends JFrame {
 
     Container CP = getContentPane();
-    JTextField label= new JTextField("", SwingConstants.RIGHT);
+    JTextField label = new JTextField("", SwingConstants.RIGHT);
     JPanel panel = new JPanel();
-    TextArea TA = new TextArea(10,10);
-
+    TextArea TA = new TextArea(10, 10);
 
     HoleOption Opt;
     Logic logic = new Logic();
     static String view_value = "";
+
+    /**
+     * Event Method
+     */
+    private void evenHandlerNumber(JButton btn) {
+        btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String sum_str = label.getText() + btn.getText();
+                label.setText(sum_str);
+            }
+        });
+    }
+
+    private void evenHandlerOperator(JButton btn) {
+        btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String current_val = label.getText();
+                if (!(current_val.equals("")) || !(current_val.equals("0"))) {
+                    logic.saveCurrentVal(current_val);
+                    logic.saveOperateVal(btn.getText());
+                    label.setText("");
+                } else {
+                    return;
+                }
+            }
+        });
+    }
+
+    private void evenHandlerEqual(JButton btn) {
+        btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!logic.checkOperatorIsNotNull() ) {
+                    System.out.println(logic.duplicateCheck());
+//                    if ()
+//                    {
+//                        logic.saveCurrentVal(label.getText());
+//                        logic.cal();
+//                        view_value = logic.getResult() + "";
+//                        label.setText(view_value);
+//                    } else  {
+//                        System.out.println("duplication value");
+//                    }
+                } else {
+                    return;
+                }
+            }
+        });
+    }
+
+    private void evenHandlerClear(JButton btn) {
+        btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TA.append(logic.printNumbers());
+                logic.resetAll();
+                label.setText("");
+            }
+        });
+    }
 
     /**
      * Component Method
@@ -28,7 +89,6 @@ public class Calculator_Swing extends JFrame {
         }
     }
 
-
     /**
      * Constructor: Init
      */
@@ -37,15 +97,9 @@ public class Calculator_Swing extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 //        Set GridLayout
-//        CP
         GridLayout layout = new GridLayout(Opt.ROW, Opt.COLUMN);
 
-//        Set Panel
-//        panel
-
-//        Component: View
-//        label
-
+//        Set JTextField
         label.setFont(new Font(Opt.VIEW_FONT, Font.BOLD, Opt.VIEW_SIZE));
         label.setEditable(false);
         CP.add(label, BorderLayout.NORTH);
@@ -104,10 +158,15 @@ public class Calculator_Swing extends JFrame {
         setVisible(true);
 
     }
-    private static class InnerInstanceClass { private static final Calculator_Swing instance= new Calculator_Swing(); }
+
+    private static class InnerInstanceClass {
+        private static final Calculator_Swing instance = new Calculator_Swing();
+    }
+
     public static Calculator_Swing getInstance() {
         return InnerInstanceClass.instance;
     }
+
     public static void main(String[] args) {
         getInstance();
     }
