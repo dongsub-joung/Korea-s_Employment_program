@@ -9,73 +9,15 @@ import java.awt.event.ActionListener;
 
 public class Calculator_Swing extends JFrame {
 
-    Container CP;
-    JTextField label;
-    JPanel panel;
-    TextArea TA;
+    Container CP = getContentPane();
+    JTextField label= new JTextField("", SwingConstants.RIGHT);
+    JPanel panel = new JPanel();
+    TextArea TA = new TextArea(10,10);
+
 
     HoleOption Opt;
     Logic logic = new Logic();
     static String view_value = "";
-
-    /**
-     * Event Method
-     */
-    private void evenHandlerNumber(JButton btn) {
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String current_val = label.getText();
-                String sum_str = current_val + btn.getText();
-                label.setText(sum_str);
-            }
-        });
-    }
-
-    private void evenHandlerOperator(JButton btn) {
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String current_val = label.getText();
-                if ( !(current_val.equals("")) || !(current_val.equals("0"))) {
-                    logic.saveCurrentVal(current_val);
-                    logic.saveOperateVal(btn.getText());
-                    label.setText("");
-                } else {
-                    return;
-                }
-            }
-        });
-    }
-
-    private void evenHandlerEqual(JButton btn) {
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (!logic.checkOperatorIsNotNull()) {
-                    String current_val = label.getText();
-                    logic.saveCurrentVal(current_val);
-
-                    logic.cal();
-                    view_value = logic.getResult() + "";
-                    label.setText(view_value);
-                } else {
-                    return;
-                }
-            }
-        });
-    }
-
-    private void evenHandlerClear(JButton btn) {
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                TA.append(logic.printNumbers());
-                logic.resetAll();
-                label.setText("0");
-            }
-        });
-    }
 
     /**
      * Component Method
@@ -95,14 +37,15 @@ public class Calculator_Swing extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 //        Set GridLayout
-        CP = getContentPane();
+//        CP
         GridLayout layout = new GridLayout(Opt.ROW, Opt.COLUMN);
 
 //        Set Panel
-        panel = new JPanel();
+//        panel
 
 //        Component: View
-        label = new JTextField("", SwingConstants.RIGHT);
+//        label
+
         label.setFont(new Font(Opt.VIEW_FONT, Font.BOLD, Opt.VIEW_SIZE));
         label.setEditable(false);
         CP.add(label, BorderLayout.NORTH);
@@ -151,7 +94,6 @@ public class Calculator_Swing extends JFrame {
         addBtnToPanel(b0, AC, equal, div);
         CP.add(panel, BorderLayout.CENTER);
 
-        TA= new TextArea(10,10);
         TA.setText("--- Logging ---\n");
         TA.setEditable(false);
         CP.add(TA, BorderLayout.SOUTH);
