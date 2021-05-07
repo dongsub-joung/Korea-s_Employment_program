@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 public class Calculator_Swing extends JFrame {
@@ -14,7 +15,6 @@ public class Calculator_Swing extends JFrame {
     JPanel panel = new JPanel();
     TextArea TA = new TextArea(10, 10);
 
-    HoleOption Opt;
     Logic logic = new Logic();
     static String view_value = "";
 
@@ -36,7 +36,8 @@ public class Calculator_Swing extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String current_val = label.getText();
-                if (!(current_val.equals("")) || !(current_val.equals("0"))) {
+                boolean just_blink= current_val.equals("");
+                if (!just_blink) {
                     logic.saveCurrentVal(current_val);
                     logic.saveOperateVal(btn.getText());
                     label.setText("");
@@ -93,14 +94,14 @@ public class Calculator_Swing extends JFrame {
      * Constructor: Init
      */
     private Calculator_Swing() {
-        setTitle(Opt.TITLE);
+        setTitle(HoleOption.TITLE);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 //        Set GridLayout
-        GridLayout layout = new GridLayout(Opt.ROW, Opt.COLUMN);
+        GridLayout layout = new GridLayout(HoleOption.ROW, HoleOption.COLUMN);
 
 //        Set JTextField
-        label.setFont(new Font(Opt.VIEW_FONT, Font.BOLD, Opt.VIEW_SIZE));
+        label.setFont(new Font(HoleOption.VIEW_FONT, Font.BOLD, HoleOption.VIEW_SIZE));
         label.setEditable(false);
         CP.add(label, BorderLayout.NORTH);
 
@@ -154,7 +155,7 @@ public class Calculator_Swing extends JFrame {
 
         pack();
         CP.setLayout(layout);
-        setSize(Opt.W, Opt.H);
+        setSize(HoleOption.W, HoleOption.H);
         setVisible(true);
 
     }
