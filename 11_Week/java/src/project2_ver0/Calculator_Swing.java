@@ -1,11 +1,10 @@
-package project2;
+package project2_ver0;
 
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 
 public class Calculator_Swing extends JFrame {
@@ -32,15 +31,23 @@ public class Calculator_Swing extends JFrame {
     }
 
     private void evenHandlerOperator(JButton btn) {
-        btn.addActionListener(e -> {
-            String current_val = label.getText();
-            boolean just_blink= current_val.equals("");
-            if (!just_blink) {
-                logic.saveCurrentVal(current_val);
-                logic.saveOperateVal(btn.getText());
-                label.setText("");
-            } else {
-                return;
+        btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String current_val = label.getText();
+                boolean just_blink= current_val.equals("");
+                if (!just_blink) {
+                    if (logic.isNullFirstValue()){
+                        logic.saveFirstValue(current_val);
+                        logic.saveOperateVal(btn.getText());
+                        label.setText("");
+                    }
+                    else {
+                        return;
+                    }
+                } else {
+                    return;
+                }
             }
         });
     }
@@ -49,17 +56,18 @@ public class Calculator_Swing extends JFrame {
         btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                label.getText();
                 if (!logic.checkOperatorIsNotNull() ) {
                     System.out.println(logic.duplicateCheck());
-//                    if ()
-//                    {
-//                        logic.saveCurrentVal(label.getText());
-//                        logic.cal();
-//                        view_value = logic.getResult() + "";
-//                        label.setText(view_value);
-//                    } else  {
-//                        System.out.println("duplication value");
-//                    }
+                    if ()
+                    {
+                        logic.saveCurrentVal();
+                        logic.cal();
+                        view_value = logic.getResult() + "";
+                        label.setText(view_value);
+                    } else  {
+                        System.out.println("duplication value");
+                    }
                 } else {
                     return;
                 }

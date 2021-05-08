@@ -14,12 +14,10 @@ import java.util.Iterator;
 public class Logic {
     private static ArrayList<String> number_value = new ArrayList<>();
     private static ArrayList<String> operator_value = new ArrayList<>();
-    private static ArrayList<String> buff= new ArrayList<>();
+    private static String[] buff = new String[10];
     private static double result = 0;
-//    private static int count= 0, oper_count= 0, numbers_count= 0;
 
     //    Setter
-
     public static void saveCurrentVal(String current_Value) {
         number_value.add(current_Value);
     }
@@ -34,12 +32,12 @@ public class Logic {
         result = 0;
     }
 
-//    Getter
+    //    Getter
     public static double getResult() {
-    return result;
-}
+        return result;
+    }
 
-//    Printer
+    //    Printer
     public static String printNumbers() {
         String str = "";
         for (Iterator it = number_value.iterator(); it.hasNext(); ) {
@@ -49,19 +47,19 @@ public class Logic {
         return str;
     }
 
-//    Value Checker
-    public static boolean duplicateCheck(){
+    //    Value Checker
+    public static boolean duplicateCheck() {
         String[] numbers = number_value.toArray(new String[number_value.size()]);
         String[] operators = operator_value.toArray(new String[operator_value.size()]);
 
-        return ((numbers.length / operators.length) == 0);
+        return ((numbers.length % operators.length) == 0);
     }
 
     public static boolean checkOperatorIsNotNull() {
         return operator_value.isEmpty();
     }
 
-//    Core Method
+    //    Core Method
     public static void cal() {
         String[] numbers = number_value.toArray(new String[number_value.size()]);
         String[] operators = operator_value.toArray(new String[operator_value.size()]);
@@ -73,13 +71,12 @@ public class Logic {
         System.out.println("=========");
 
         final int RANGE = numbers.length;
-        double a = (double) Integer.parseInt(numbers[0])
-                ,b = (double) Integer.parseInt(numbers[1]);
+        double a = (double) Integer.parseInt(numbers[0]), b = (double) Integer.parseInt(numbers[1]);
         if (RANGE <= 2)
             result = cal_operate(a, b, operators[0].charAt(0));
         else {
-            int num= Integer.parseInt(numbers[RANGE - 1]);
-            char operator= operators[operators.length - 1].charAt(0);
+            int num = Integer.parseInt(numbers[RANGE - 1]);
+            char operator = operators[operators.length - 1].charAt(0);
 
             result = cal_operate(result, num, operator);
         }
