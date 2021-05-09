@@ -1,11 +1,9 @@
 package project2_ver0;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 
 public class Calculator_Swing extends JFrame {
 
@@ -14,7 +12,7 @@ public class Calculator_Swing extends JFrame {
     JPanel panel = new JPanel();
     TextArea TA = new TextArea(10, 10);
 
-    Logic logic = new Logic();
+    Init init= new Init();
     static String view_value = "";
 
     /**

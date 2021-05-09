@@ -11,27 +11,23 @@ import java.util.Iterator;
  * */
 
 public class Logic {
-    private double result = 0;
+    protected double result = 0;
     protected String[] buff = new String[5];
-    private ArrayList<String> history= new ArrayList<>();
+    protected ArrayList<String> history= new ArrayList<>();
 
     //    Setter
     public void saveFirstValue(String current_Value) {
         buff[0]= current_Value;
     }
-
     public void saveSecondValue(String current_Value) {
         buff[2]= current_Value;
     }
-
     public void saveOperateVal(String current_Value) {
         buff[1]= current_Value;
     }
-
     public void saveResult(String result){
         buff[4]= result;
     }
-
     public void setHistory(String result) {
         history.add(result);
     }
@@ -46,7 +42,6 @@ public class Logic {
     public double getResult() {
         return result;
     }
-
     public String[] getBuff() {
         return buff;
     }

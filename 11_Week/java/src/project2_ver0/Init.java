@@ -1,6 +1,18 @@
 package project2_ver0;
 
 public class Init extends ValueChacker {
+    int a, b; {a=0; b=0;}
+
+    public Init(){
+        try{
+            String a_str= buff[0]; String b_str= buff[2];
+            char c= buff[1].charAt(0);
+        }catch (Exception e) {
+            System.out.println(e + "");
+        }
+    }
+
+    public
 
     //    Printer
     public String printNumbers() {
@@ -12,7 +24,9 @@ public class Init extends ValueChacker {
     }
 
     //    Core Method
-    public static double initCalculate(double a, double b, char c) {
+    public double initCalculate() {
+        int a= 0, b= 0; char c= ' ';
+
         double result = 0;
         switch (c) {
             case '+':
