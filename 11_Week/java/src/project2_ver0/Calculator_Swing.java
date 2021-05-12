@@ -19,56 +19,53 @@ public class Calculator_Swing extends JFrame {
      * Event Method
      */
     private void evenHandlerNumber(JButton btn) {
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String sum_str = label.getText() + btn.getText();
-                label.setText(sum_str);
-            }
+        btn.addActionListener(e -> {
+            String sum_str = label.getText() + btn.getText();
+            label.setText(sum_str);
         });
     }
 
     private void evenHandlerOperator(JButton btn) {
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String current_val = label.getText();
-                boolean just_blink= current_val.equals("");
-                if (!just_blink) {
-                    if (logic.isNullFirstValue()){
-                        logic.saveFirstValue(current_val);
-                        logic.saveOperateVal(btn.getText());
-                        label.setText("");
-                    }
-                    else {
-                        return;
-                    }
-                } else {
-                    return;
+        btn.addActionListener(e -> {
+            String temp, current_val= "";
+
+//            Get Value entered by user && Null Checking.Verify
+            temp= label.getText();
+            if(temp != null) {
+                if (!temp.equals("")){
+                    current_val= temp;
+                }else{
+                    System.out.println("Err: Default number");
                 }
             }
+            else {
+                System.out.println("First number is null");
+                return;
+            }
+
+            init.saveFirstValue(current_val);
+            init.saveOperateVal(btn.getText());
+            label.setText("");
         });
     }
 
     private void evenHandlerEqual(JButton btn) {
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                label.getText();
-                if (!logic.checkOperatorIsNotNull() ) {
-                    System.out.println(logic.duplicateCheck());
-                    if ()
-                    {
-                        logic.saveCurrentVal();
-                        logic.cal();
-                        view_value = logic.getResult() + "";
-                        label.setText(view_value);
-                    } else  {
-                        System.out.println("duplication value");
-                    }
-                } else {
-                    return;
+        btn.addActionListener(e -> {
+            label.getText();
+
+            if (!logic.checkOperatorIsNotNull() ) {
+                System.out.println(logic.duplicateCheck());
+                if ()
+                {
+                    logic.saveCurrentVal();
+                    logic.cal();
+                    view_value = logic.getResult() + "";
+                    label.setText(view_value);
+                } else  {
+                    System.out.println("duplication value");
                 }
+            } else {
+                return;
             }
         });
     }

@@ -1,6 +1,6 @@
 package project2_ver0;
 
-public class Init extends ValueChacker {
+public class Init extends Logic {
     int a, b; {a=0; b=0;}
 
     public Init(){
@@ -12,7 +12,6 @@ public class Init extends ValueChacker {
         }
     }
 
-    public
 
     //    Printer
     public String printNumbers() {
