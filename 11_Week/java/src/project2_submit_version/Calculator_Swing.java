@@ -8,13 +8,14 @@ import java.awt.*;
 public class Calculator_Swing extends JFrame {
 
     Container CP = getContentPane();
+    JPanel panel = new JPanel();
+
     JLabel number1 = new JLabel("Number1");
     JLabel number2 = new JLabel("Number2");
     JLabel result = new JLabel("result");
     JTextField numb1_field = new JTextField("", SwingConstants.RIGHT);
     JTextField numb2_field = new JTextField("", SwingConstants.RIGHT);
     JTextField result_field = new JTextField("", SwingConstants.RIGHT);
-    JPanel panel = new JPanel();
 
     static String view_value = "";
     String[] buff = new String[5];
@@ -115,6 +116,10 @@ public class Calculator_Swing extends JFrame {
         setTitle(project2_ver0.HoleOption.TITLE);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+        GridLayout grid = new GridLayout(10, 2);
+        grid.setVgap(10);
+        panel.setLayout(grid);
+
 //        Set Component Options
         setFontJTextFields(numb1_field, numb2_field, result_field);
         numb1_field.setEditable(true);
@@ -134,19 +139,14 @@ public class Calculator_Swing extends JFrame {
         JButton EXIT = new JButton("EXIT");
         EXIT.addActionListener(e -> System.exit(0) );
 
-        CP.add(panel);
-//        GridLayout layout = new GridLayout(project2_ver0.HoleOption.ROW, project2_ver0.HoleOption.COLUMN);
-//        panel.setLayout(layout);
-
 //        Attach components
         addSingingComponent( number1, numb1_field);
         addSingingComponent( number2, numb2_field);
         addSingingComponent( result, result_field);
         addBtnToPanel(add, sub, mul, div);
         addBtnToPanel(AC, EXIT);
-        CP.add(panel, BorderLayout.CENTER);
+        CP.add(panel);
 
-//        CP.setLayout(layout);
         setSize(project2_ver0.HoleOption.W, HoleOption.H);
         setVisible(true);
     }

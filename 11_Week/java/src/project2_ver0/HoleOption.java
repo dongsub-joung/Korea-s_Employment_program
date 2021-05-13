@@ -7,7 +7,7 @@ public class HoleOption
     public final static String TITLE = "Calculator";
 
 //    GridLayout
-    public final static int ROW = 4, COLUMN = 4;
+//    public final static int ROW = 4, COLUMN = 4;
 
 //    JTextField Font, Size
     public final static String VIEW_FONT= "Serif";
