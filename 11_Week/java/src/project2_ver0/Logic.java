@@ -32,6 +32,8 @@ public class Logic {
         history.add(result);
     }
 
+
+
     public void resetAll() {
 //      garbage collector because weal mapping && new array mapping
         buff= new String[5];

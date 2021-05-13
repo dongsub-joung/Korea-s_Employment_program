@@ -1,4 +1,7 @@
-package project2_ver0;
+package project2_submit_version;
+
+import project2_ver0.HoleOption;
+import project2_ver0.Init;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,9 +11,13 @@ import java.awt.event.ActionListener;
 public class Calculator_Swing extends JFrame {
 
     Container CP = getContentPane();
-    JTextField label = new JTextField("", SwingConstants.RIGHT);
+    JLabel number1= new JLabel("Number1");
+    JLabel number2= new JLabel("Number2");
+    JLabel result= new JLabel("result");
+    JTextField numb1_field = new JTextField("", SwingConstants.RIGHT);
+    JTextField numb2_field = new JTextField("", SwingConstants.RIGHT);
+    JTextField result_field = new JTextField("", SwingConstants.RIGHT);
     JPanel panel = new JPanel();
-    TextArea TA = new TextArea(10, 10);
 
     Init init= new Init();
     static String view_value = "";
@@ -18,14 +25,18 @@ public class Calculator_Swing extends JFrame {
     /**
      * Event Method
      */
-    private void evenHandlerNumber(JButton btn) {
+    private void evenHandlerOperator(JButton btn) {
         btn.addActionListener(e -> {
-            String sum_str = label.getText() + btn.getText();
-            label.setText(sum_str);
+            String temp, current_val= "";
+
+//            Get Value entered by user && Null Checking.Verify
+            init.saveFirstValue(current_val);
+            init.saveOperateVal(btn.getText());
+            label.setText("");
         });
     }
 
-    private void evenHandlerOperator(JButton btn) {
+    private void evenHandlerEqual(JButton btn) {
         btn.addActionListener(e -> {
             String temp, current_val= "";
 
@@ -38,26 +49,11 @@ public class Calculator_Swing extends JFrame {
                     System.out.println("Err: Default number");
                 }
             }
-            else {
-                System.out.println("First number is null");
-                return;
-            }
 
-            init.saveFirstValue(current_val);
-            init.saveOperateVal(btn.getText());
-            label.setText("");
-        });
-    }
-
-    private void evenHandlerEqual(JButton btn) {
-        btn.addActionListener(e -> {
-            label.getText();
-
-            if (!logic.checkOperatorIsNotNull() ) {
-                System.out.println(logic.duplicateCheck());
+            if (init.buff[1] != null) {
                 if ()
                 {
-                    logic.saveCurrentVal();
+                    init.saveSecondValue(current_val);
                     logic.cal();
                     view_value = logic.getResult() + "";
                     label.setText(view_value);
@@ -65,6 +61,7 @@ public class Calculator_Swing extends JFrame {
                     System.out.println("duplication value");
                 }
             } else {
+                System.out.println("Operator is null");
                 return;
             }
         });
@@ -74,8 +71,7 @@ public class Calculator_Swing extends JFrame {
         btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TA.append(logic.printNumbers());
-                logic.resetAll();
+                init.resetAll();
                 label.setText("");
             }
         });
@@ -94,14 +90,14 @@ public class Calculator_Swing extends JFrame {
      * Constructor: Init
      */
     private Calculator_Swing() {
-        setTitle(HoleOption.TITLE);
+        setTitle(project2_ver0.HoleOption.TITLE);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 //        Set GridLayout
-        GridLayout layout = new GridLayout(HoleOption.ROW, HoleOption.COLUMN);
+        GridLayout layout = new GridLayout(project2_ver0.HoleOption.ROW, project2_ver0.HoleOption.COLUMN);
 
 //        Set JTextField
-        label.setFont(new Font(HoleOption.VIEW_FONT, Font.BOLD, HoleOption.VIEW_SIZE));
+        label.setFont(new Font(project2_ver0.HoleOption.VIEW_FONT, Font.BOLD, project2_ver0.HoleOption.VIEW_SIZE));
         label.setEditable(false);
         CP.add(label, BorderLayout.NORTH);
 
@@ -120,44 +116,18 @@ public class Calculator_Swing extends JFrame {
         JButton equal = new JButton("=");
         evenHandlerEqual(equal);
 
-        JButton b0 = new JButton("0");
-        evenHandlerNumber(b0);
-        JButton b1 = new JButton("1");
-        evenHandlerNumber(b1);
-        JButton b2 = new JButton("2");
-        evenHandlerNumber(b2);
-        JButton b3 = new JButton("3");
-        evenHandlerNumber(b3);
-        JButton b4 = new JButton("4");
-        evenHandlerNumber(b4);
-        JButton b5 = new JButton("5");
-        evenHandlerNumber(b5);
-        JButton b6 = new JButton("6");
-        evenHandlerNumber(b6);
-        JButton b7 = new JButton("7");
-        evenHandlerNumber(b7);
-        JButton b8 = new JButton("8");
-        evenHandlerNumber(b8);
-        JButton b9 = new JButton("9");
-        evenHandlerNumber(b9);
         CP.add(panel);
         panel.setLayout(layout);
 
-        addBtnToPanel(b7, b8, b9, add);
-        addBtnToPanel(b4, b5, b6, sub);
-        addBtnToPanel(b1, b2, b3, mul);
-        addBtnToPanel(b0, AC, equal, div);
+        addBtnToPanel(add, sub,mul, div);;
         CP.add(panel, BorderLayout.CENTER);
 
-        TA.setText("--- Logging ---\n");
         TA.setEditable(false);
         CP.add(TA, BorderLayout.SOUTH);
 
-        pack();
         CP.setLayout(layout);
-        setSize(HoleOption.W, HoleOption.H);
+        setSize(project2_ver0.HoleOption.W, HoleOption.H);
         setVisible(true);
-
     }
 
     private static class InnerInstanceClass {
