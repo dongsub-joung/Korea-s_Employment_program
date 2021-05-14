@@ -20,22 +20,31 @@ public class ex05_14 {
                 + "Sec");
     }
 
+    private void addInteger(List<Integer> list, int ...numbers){
+        for (int num : numbers) {
+            list.add(num);
+        }
+    }
     public void Example066(){
-        List arr1= new ArrayList(), arr2= new ArrayList();
-        arr1.add(10); arr1.add(20); arr1.add(30);
-        arr2.add(40); arr2.add(50); arr2.add(60);
-        Iterator itr1= arr1.iterator();
-        Iterator itr2= arr2.iterator();
-        for (;itr1.hasNext();) {
-            int a= (int) itr1.next();
-            int b= (int) itr2.next();
+        List<Integer> arr1= new ArrayList<>(),
+                arr2= new ArrayList<>();
+        addInteger(arr1, 10,20,30);
+        addInteger(arr2,40,50,60);
+        Iterator<Integer> itr1= arr1.iterator(),
+                itr2= arr2.iterator();
+        while (itr1.hasNext()) {
+            int a= itr1.next();
+            int b= itr2.next();
             System.out.println(a+b);
         }
     }
 
+    private void addChars(ArrayList<Character> list, char ...chars){
+        for (char c : chars) list.add(c);
+    }
     public void Exam069(){
-        ArrayList list= new ArrayList();
-        list.add('A'); list.add('C'); list.add('D'); list.add('H'); list.add('Z');
+        ArrayList<Character> list= new ArrayList<>();
+        addChars(list,'A','C','D','H','Z');
         Iterator itr= list.iterator();
         int len= list.size();
         String[] result= new String[len];
@@ -45,11 +54,15 @@ public class ex05_14 {
     }
 
     public void Exam070(){
-        ArrayList list= new ArrayList();
-        list.add(12); list.add(20); list.add(12); list.add(25); list.add(60);
-        Set set= new HashSet();
-        set.addAll(list);
-        Iterator itr= set.iterator();
-        for (; itr.hasNext(); ) System.out.println((int) itr.next()+" ");
+        ArrayList<Integer> list= new ArrayList<Integer>();
+        addInteger(list, 12, 20, 12, 25, 60);
+        Set<Integer> set = new HashSet<>(list);
+        for (Integer integer : set) {
+            System.out.println(integer + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+
     }
 }
