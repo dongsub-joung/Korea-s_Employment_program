@@ -1,12 +1,9 @@
 package project2_submit_version;
 
 import project2_ver0.HoleOption;
-import project2_ver0.Init;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Calculator_Swing extends JFrame {
 
@@ -19,63 +16,74 @@ public class Calculator_Swing extends JFrame {
     JTextField result_field = new JTextField("", SwingConstants.RIGHT);
     JPanel panel = new JPanel();
 
-    Init init= new Init();
     static String view_value = "";
+    String[] buff= new String[5];
 
     /**
      * Event Method
      */
-    private void evenHandlerOperator(JButton btn) {
-        btn.addActionListener(e -> {
-            String temp, current_val= "";
 
-//            Get Value entered by user && Null Checking.Verify
-            init.saveFirstValue(current_val);
-            init.saveOperateVal(btn.getText());
-            label.setText("");
-        });
+    private void setFontJTextFields(JTextField ...fields){
+        for(JTextField field : fields){
+            field.setFont(new Font(project2.HoleOption.VIEW_FONT, Font.BOLD, project2.HoleOption.VIEW_SIZE));
+        }
     }
 
-    private void evenHandlerEqual(JButton btn) {
+    private void evenHandlerOperator(JButton btn) {
         btn.addActionListener(e -> {
-            String temp, current_val= "";
+            String value1= numb1_field.getText();
+            String value2= numb2_field.getText();
+            double a= 0, b= 0; char c= ' ';
+            double result = 0;
+            int buff_len= 0;
+//            String temp, current_val= "";
 
 //            Get Value entered by user && Null Checking.Verify
-            temp= label.getText();
-            if(temp != null) {
-                if (!temp.equals("")){
-                    current_val= temp;
-                }else{
-                    System.out.println("Err: Default number");
-                }
-            }
+            buff_len= buff.length;
+            if(!value1.equals("")) {
+                a= Integer.parseInt(value1);
+                b= Integer.parseInt(value2);
+                c= btn.getText().charAt(0);
 
-            if (init.buff[1] != null) {
-                if ()
-                {
-                    init.saveSecondValue(current_val);
-                    logic.cal();
-                    view_value = logic.getResult() + "";
-                    label.setText(view_value);
-                } else  {
-                    System.out.println("duplication value");
+                if (buff_len > 0) {
+                    switch (c) {
+                        case '+':
+                            result = a + b;
+                            break;
+                        case '-':
+                            result = a - b;
+                            break;
+                        case '*':
+                            result = a * b;
+                            break;
+                        case '/':
+                            result = a / b;
+                            break;
+                        default:
+                            System.out.println("ERR");
+                            break;
+                    }
+
+                    result_field.setText(Character.toString((int)result));
+                } else {
+                    result_field.setText("Operator is null");
+                    return;
                 }
             } else {
-                System.out.println("Operator is null");
+                result_field.setText("First number is Null.");
                 return;
             }
         });
     }
 
     private void evenHandlerClear(JButton btn) {
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                init.resetAll();
-                label.setText("");
-            }
+        btn.addActionListener(e -> {
+            numb1_field.setText("");
+            numb2_field.setText("");
+            result_field.setText("");
         });
     }
+
 
     /**
      * Component Method
@@ -86,46 +94,51 @@ public class Calculator_Swing extends JFrame {
         }
     }
 
+    private void addEventHandler(JButton ...btns){
+        for (JButton btn : btns){
+            evenHandlerOperator(btn);
+        }
+    }
+
     /**
      * Constructor: Init
      */
-    private Calculator_Swing() {
+    private Calculator_Swing()
+    {
         setTitle(project2_ver0.HoleOption.TITLE);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 //        Set GridLayout
-        GridLayout layout = new GridLayout(project2_ver0.HoleOption.ROW, project2_ver0.HoleOption.COLUMN);
+//        GridLayout layout = new GridLayout(project2_ver0.HoleOption.ROW, project2_ver0.HoleOption.COLUMN);
+
 
 //        Set JTextField
-        label.setFont(new Font(project2_ver0.HoleOption.VIEW_FONT, Font.BOLD, project2_ver0.HoleOption.VIEW_SIZE));
-        label.setEditable(false);
-        CP.add(label, BorderLayout.NORTH);
+        setFontJTextFields(numb1_field, numb2_field, result_field);
+        numb1_field.setEditable(true); numb2_field.setEditable(true);
+        result_field.setEditable(false);
 
 //        Component: BTN NUMBERS (4*4): Create BTN
 //        Or JButton[] bt = new JButton[16];
-        JButton div = new JButton("/");
-        evenHandlerOperator(div);
-        JButton mul = new JButton("*");
-        evenHandlerOperator(mul);
-        JButton sub = new JButton("-");
-        evenHandlerOperator(sub);
         JButton add = new JButton("+");
-        evenHandlerOperator(add);
-        JButton AC = new JButton("C");
+        JButton sub = new JButton("-");
+        JButton div = new JButton("/");
+        JButton mul = new JButton("*");
+        addEventHandler(add, sub, div, mul);
+
+        JButton AC = new JButton("Clear");
         evenHandlerClear(AC);
-        JButton equal = new JButton("=");
-        evenHandlerEqual(equal);
+
+        JButton EXIT = new JButton("EXIT");
+        EXIT.addActionListener(e-> setDefaultCloseOperation(EXIT_ON_CLOSE));
 
         CP.add(panel);
-        panel.setLayout(layout);
+//        panel.setLayout(layout);
 
-        addBtnToPanel(add, sub,mul, div);;
+        addBtnToPanel(add, sub, mul, div);
+        addBtnToPanel(AC, EXIT);
         CP.add(panel, BorderLayout.CENTER);
 
-        TA.setEditable(false);
-        CP.add(TA, BorderLayout.SOUTH);
-
-        CP.setLayout(layout);
+//        CP.setLayout(layout);
         setSize(project2_ver0.HoleOption.W, HoleOption.H);
         setVisible(true);
     }
