@@ -73,3 +73,6 @@ public class java016 extends JFrame {
         new java016();
     }
 }
+
+// Code Reference
+// https://blog.naver.com/PostView.nhn?blogId=battledocho&logNo=220012077952&parentCategoryNo=&categoryNo=67&viewDate=&isShowPopularPosts=false&from=postView

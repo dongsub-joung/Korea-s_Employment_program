@@ -1,28 +1,22 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class java19 {
-    private void ex01(){
-        final String PATH= "C:\\Users\\Administrator\\IdeaProjects\\Korea-s_Employment_program\\12_Week\\DATA\\";
-        final String INPUT= PATH + "text1.txt";
-        final String OUTPUT= PATH + "output1.txt";
+    public void ex01(){
+        final String PATH= System.getProperty("user.dir") + "/12_Week/DATA";
+        final String INPUT= PATH + "/text1.txt";
+        final String OUTPUT= PATH + "/output1.txt";
 
-        try( FileInputStream fileInputStream= new FileInputStream(INPUT);
-             FileOutputStream fileOutputStream= new FileOutputStream(OUTPUT)) {
-
-
-        } catch (FileNotFoundException e) {
-            System.out.println("path err");
-            e.printStackTrace();
-        } catch (IOException e) {
-            System.out.println("IO err");
-            e.printStackTrace();
+//        fileOutputStream= new FileOutputStream(OUTPUT)
+        try(FileInputStream fileInputStream= new FileInputStream(new File(INPUT));
+            FileOutputStream fileOutputStream= new FileOutputStream(new File(OUTPUT));) {
+            fileInputStream.transferTo(fileOutputStream);
         } catch (Exception e){
-            System.out.println("Unexpected err");
+            System.out.println(e+"err");
             e.printStackTrace();
         }
+    }
 
+    public static void main(String[] args) {
+        new java19().ex01();
     }
 }
