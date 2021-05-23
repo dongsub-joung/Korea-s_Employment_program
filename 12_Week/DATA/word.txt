@@ -1,0 +1,11 @@
+Soft
+Apple
+Lion
+Grape
+Eagle
+Elephant
+Car
+Ship
+Plane
+Bike
+Motor
